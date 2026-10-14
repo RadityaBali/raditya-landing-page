@@ -9,7 +9,12 @@
     ],
     "address": "Jl. Contoh, Denpasar, Bali (alamat dummy)",
     "website": "cabang.html?cabang=denpasar",
-    "isPreview": true
+    "isPreview": true,
+    "mapPosition": [
+      60,
+      84
+    ],
+    "mapLabel": "Denpasar"
   },
   {
     "id": "badung",
@@ -21,7 +26,12 @@
     ],
     "address": "Jl. Contoh, Badung, Bali (alamat dummy)",
     "website": "cabang.html?cabang=badung",
-    "isPreview": true
+    "isPreview": true,
+    "mapPosition": [
+      58,
+      72
+    ],
+    "mapLabel": "Badung"
   },
   {
     "id": "gianyar",
@@ -33,7 +43,12 @@
     ],
     "address": "Jl. Contoh, Gianyar, Bali (alamat dummy)",
     "website": "cabang.html?cabang=gianyar",
-    "isPreview": true
+    "isPreview": true,
+    "mapPosition": [
+      74,
+      67
+    ],
+    "mapLabel": "Gianyar"
   },
   {
     "id": "tabanan",
@@ -45,7 +60,12 @@
     ],
     "address": "Jl. Contoh, Tabanan, Bali (alamat dummy)",
     "website": "cabang.html?cabang=tabanan",
-    "isPreview": true
+    "isPreview": true,
+    "mapPosition": [
+      43,
+      61
+    ],
+    "mapLabel": "Tabanan"
   },
   {
     "id": "buleleng",
@@ -57,7 +77,12 @@
     ],
     "address": "Jl. Contoh, Buleleng, Bali (alamat dummy)",
     "website": "cabang.html?cabang=buleleng",
-    "isPreview": true
+    "isPreview": true,
+    "mapPosition": [
+      51,
+      9
+    ],
+    "mapLabel": "Singaraja"
   },
   {
     "id": "jembrana",
@@ -69,7 +94,12 @@
     ],
     "address": "Jl. Contoh, Jembrana, Bali (alamat dummy)",
     "website": "cabang.html?cabang=jembrana",
-    "isPreview": true
+    "isPreview": true,
+    "mapPosition": [
+      16,
+      39
+    ],
+    "mapLabel": "Negara"
   },
   {
     "id": "karangasem",
@@ -81,7 +111,12 @@
     ],
     "address": "Jl. Contoh, Karangasem, Bali (alamat dummy)",
     "website": "cabang.html?cabang=karangasem",
-    "isPreview": true
+    "isPreview": true,
+    "mapPosition": [
+      84,
+      41
+    ],
+    "mapLabel": "Karangasem"
   },
   {
     "id": "klungkung",
@@ -93,7 +128,12 @@
     ],
     "address": "Jl. Contoh, Klungkung, Bali (alamat dummy)",
     "website": "cabang.html?cabang=klungkung",
-    "isPreview": true
+    "isPreview": true,
+    "mapPosition": [
+      84,
+      59
+    ],
+    "mapLabel": "Klungkung"
   },
   {
     "id": "bangli",
@@ -105,6 +145,11 @@
     ],
     "address": "Jl. Contoh, Bangli, Bali (alamat dummy)",
     "website": "cabang.html?cabang=bangli",
-    "isPreview": true
+    "isPreview": true,
+    "mapPosition": [
+      68,
+      49
+    ],
+    "mapLabel": "Bangli"
   }
 ]

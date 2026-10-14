@@ -1140,21 +1140,20 @@
 </section>
 <section id="cabang" class="landing-section branch-section">
 <div class="wrap">
-<div class="section-top">
-<div>
-<span class="kicker">03 / LOKASI DI BALI</span>
-<h2 class="section-heading">Temukan Raditya Bali<br>di dekat Anda.</h2>
-</div>
-<p class="intro-copy">Jelajahi daftar cabang per kabupaten di Bali. Hubungi tim kami untuk informasi kendaraan dan konfirmasi lokasi kunjungan.</p>
+<div class="section-top branch-map-heading">
+<div><span class="kicker">JARINGAN CABANG RADITYA BALI</span><h2 class="section-heading">Jangkauan Luas, Layanan Dekat di Hati!</h2></div>
+<p class="intro-copy">Temukan cabang <strong>Raditya Bali</strong> di berbagai wilayah Bali. Pilih cabang pada peta untuk membuka websitenya, atau temukan cabang terdekat dari lokasi Anda.</p>
 </div>
 <div class="branch-map-panel">
-<div class="branch-map-toolbar">
-<div><span class="branch-map-eyebrow">JARINGAN RADITYA BALI</span><h3>Satu pulau. Lebih dekat dengan Anda.</h3></div>
+<div class="branch-map-stage"><div id="branch-map" aria-label="Peta cabang Raditya Bali"><img id="bali-map-image" src="image/bali-branch-map.png" width="863" height="534" alt="Peta Pulau Bali dan Nusa Penida" loading="lazy" decoding="async"><div id="branch-map-pins" aria-label="Pilih cabang di peta"></div></div><div id="branch-map-error" hidden>Gambar peta belum dapat dimuat. Anda tetap dapat memilih cabang melalui daftar wilayah.</div></div>
+<div class="branch-map-bottom"><span><i aria-hidden="true"></i> Klik nama cabang untuk membuka website</span><span id="branch-map-status" role="status">Pratinjau · Lokasi dan website cabang menggunakan data dummy</span></div>
+<div class="branch-map-controls">
+<div class="branch-location-bar"><div><strong>Cabang terdekat dari Anda</strong><p>Izinkan akses lokasi untuk menemukan cabang di sekitar Anda.</p></div><button id="branch-locate" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3"/></svg><span>Cari cabang terdekat</span></button></div>
 <div class="branch-map-actions"><label for="branch-select" class="sr-only">Pilih cabang</label><select id="branch-select"><option value="">Pilih wilayah cabang</option></select><button id="branch-map-reset" type="button" aria-label="Tampilkan seluruh Bali">Lihat semua ↗</button></div>
 </div>
-<div class="branch-map-stage"><div id="branch-map" aria-label="Peta interaktif lokasi cabang Raditya Bali"></div><div id="branch-map-error" hidden>Peta belum dapat dimuat. Pilih wilayah melalui daftar cabang di bawah.</div></div>
-<div class="branch-map-bottom"><span><i aria-hidden="true"></i> Pilih penanda untuk melihat cabang</span><span id="branch-map-status" role="status">Pratinjau · Titik contoh, bukan lokasi toko terverifikasi</span></div>
-<div id="branch-map-detail" class="branch-map-detail" aria-live="polite"><span>JELAJAHI CABANG</span><p>Pilih penanda di peta atau wilayah cabang di atas.</p></div>
+<p id="branch-location-status" class="branch-location-status" role="status" hidden></p>
+<div id="branch-nearest" class="branch-nearest" hidden></div>
+<div id="branch-map-detail" class="branch-map-detail" aria-live="polite" hidden></div>
 </div>
 <div class="branch-layout">
 <article class="showroom-card" id="cabang-denpasar">
@@ -2156,6 +2155,7 @@ Berikut detail pengajuan saya:
             }
         }
     </script>
+<script src="branch-distance.js" defer></script>
 <script src="branches.js" defer></script>
 <script>
 const brandMotionToggle = document.getElementById('brand-motion-toggle');
