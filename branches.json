@@ -1,0 +1,110 @@
+[
+  {
+    "id": "denpasar",
+    "name": "Raditya Bali Denpasar",
+    "region": "Denpasar",
+    "coordinates": [
+      -8.6743665,
+      115.2073586
+    ],
+    "address": "Jl. Contoh, Denpasar, Bali (alamat dummy)",
+    "website": "cabang.html?cabang=denpasar",
+    "isPreview": true
+  },
+  {
+    "id": "badung",
+    "name": "Raditya Bali Badung",
+    "region": "Badung",
+    "coordinates": [
+      -8.581,
+      115.177
+    ],
+    "address": "Jl. Contoh, Badung, Bali (alamat dummy)",
+    "website": "cabang.html?cabang=badung",
+    "isPreview": true
+  },
+  {
+    "id": "gianyar",
+    "name": "Raditya Bali Gianyar",
+    "region": "Gianyar",
+    "coordinates": [
+      -8.539,
+      115.325
+    ],
+    "address": "Jl. Contoh, Gianyar, Bali (alamat dummy)",
+    "website": "cabang.html?cabang=gianyar",
+    "isPreview": true
+  },
+  {
+    "id": "tabanan",
+    "name": "Raditya Bali Tabanan",
+    "region": "Tabanan",
+    "coordinates": [
+      -8.537,
+      115.125
+    ],
+    "address": "Jl. Contoh, Tabanan, Bali (alamat dummy)",
+    "website": "cabang.html?cabang=tabanan",
+    "isPreview": true
+  },
+  {
+    "id": "buleleng",
+    "name": "Raditya Bali Buleleng",
+    "region": "Buleleng",
+    "coordinates": [
+      -8.112,
+      115.089
+    ],
+    "address": "Jl. Contoh, Buleleng, Bali (alamat dummy)",
+    "website": "cabang.html?cabang=buleleng",
+    "isPreview": true
+  },
+  {
+    "id": "jembrana",
+    "name": "Raditya Bali Jembrana",
+    "region": "Jembrana",
+    "coordinates": [
+      -8.357,
+      114.623
+    ],
+    "address": "Jl. Contoh, Jembrana, Bali (alamat dummy)",
+    "website": "cabang.html?cabang=jembrana",
+    "isPreview": true
+  },
+  {
+    "id": "karangasem",
+    "name": "Raditya Bali Karangasem",
+    "region": "Karangasem",
+    "coordinates": [
+      -8.447,
+      115.616
+    ],
+    "address": "Jl. Contoh, Karangasem, Bali (alamat dummy)",
+    "website": "cabang.html?cabang=karangasem",
+    "isPreview": true
+  },
+  {
+    "id": "klungkung",
+    "name": "Raditya Bali Klungkung",
+    "region": "Klungkung",
+    "coordinates": [
+      -8.535,
+      115.405
+    ],
+    "address": "Jl. Contoh, Klungkung, Bali (alamat dummy)",
+    "website": "cabang.html?cabang=klungkung",
+    "isPreview": true
+  },
+  {
+    "id": "bangli",
+    "name": "Raditya Bali Bangli",
+    "region": "Bangli",
+    "coordinates": [
+      -8.454,
+      115.354
+    ],
+    "address": "Jl. Contoh, Bangli, Bali (alamat dummy)",
+    "website": "cabang.html?cabang=bangli",
+    "isPreview": true
+  }
+]
