@@ -12,11 +12,10 @@ Halaman cabang memiliki isi HTML langsung, judul/deskripsi unik, canonical, foto
 | Badung | /cabang/badung/ | badung |
 | Gianyar | /cabang/gianyar/ | gianyar |
 | Tabanan | /cabang/tabanan/ | tabanan |
-| Singaraja / Buleleng | /cabang/singaraja/ | buleleng |
-| Negara / Jembrana | /cabang/negara/ | jembrana |
+| Singaraja | /cabang/singaraja/ | singaraja |
+| Negara | /cabang/negara/ | negara |
 | Karangasem | /cabang/karangasem/ | karangasem |
 | Klungkung | /cabang/klungkung/ | klungkung |
-| Bangli | /cabang/bangli/ | bangli |
 
 Direktori: `/cabang/`. Informasi perusahaan: `/tentang-kami/`. Tiga artikel pengenalan EV: `/panduan/`.
 Link lama `cabang.html?cabang=...&ref=...` tetap diarahkan ke halaman baru dengan referral yang sama.
@@ -64,4 +63,4 @@ Ini adalah fondasi website publik yang berfungsi, bukan dashboard admin. Belum t
 
 ## Verifikasi
 
-`node tests/contact-routing.test.cjs` menguji prioritas referral, pilihan manual/halaman/lokasi, masa berlaku, sales nonaktif, serta semua 9 cabang. Browser juga memverifikasi tujuan WhatsApp tiap halaman, alur cabang ke katalog, dan perubahan cabang pengiriman tanpa mengganti referral. Tidak ada pesan WhatsApp dikirim selama pengujian.
+`node tests/contact-routing.test.cjs` menguji prioritas referral, pilihan manual/halaman/lokasi, masa berlaku, sales nonaktif, serta semua 8 cabang. Browser juga memverifikasi tujuan WhatsApp tiap halaman, alur cabang ke katalog, dan perubahan cabang pengiriman tanpa mengganti referral. Tidak ada pesan WhatsApp dikirim selama pengujian.

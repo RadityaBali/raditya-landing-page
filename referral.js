@@ -11,7 +11,7 @@
         return { referral: { sales: salesperson, branch, expiresAt: explicit ? now + DURATION : saved.expiresAt }, invalid: false, clear: false };
     }
     function createLink(base, salesperson) {
-        const slug = { buleleng: 'singaraja', jembrana: 'negara' }[salesperson.branchId] || salesperson.branchId;
+        const slug = salesperson.branchId;
         const url = new URL('cabang/' + slug + '/', base);
         url.search = ''; url.hash = '';
         url.searchParams.set('cabang', salesperson.branchId);

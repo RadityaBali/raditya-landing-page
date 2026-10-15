@@ -25,7 +25,8 @@
             if (url.hostname !== 'wa.me') return;
             if (!link.dataset.originalPhone) link.dataset.originalPhone = url.pathname.slice(1);
             const pinned = link.dataset.contactBranch;
-            const recipient = pinned ? radityaContactPolicy.activeSales(pinned, sales) : current.sales;
+            const isCentralContact = Object.prototype.hasOwnProperty.call(link.dataset, 'contactCentral');
+            const recipient = isCentralContact ? null : (pinned ? radityaContactPolicy.activeSales(pinned, sales) : current.sales);
             url.pathname = '/' + (recipient?.whatsapp || radityaReferral.config.centralWhatsapp);
             link.href = url.href;
             link.dataset.contactSales = recipient?.id || 'central';

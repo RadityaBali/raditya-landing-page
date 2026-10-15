@@ -7,7 +7,7 @@
       -8.6743665,
       115.2073586
     ],
-    "address": "Jl. Teuku Umar No.130, Dauh Puri Kauh, Denpasar Barat, Kota Denpasar, Bali 80113",
+    "address": "Jl. Gunung Sanghyang No.17R, Padangsambian, Kec. Denpasar Bar., Kota Denpasar, Bali 80117",
     "website": "/cabang/denpasar/",
     "isPreview": true,
     "mapPosition": [
@@ -19,8 +19,8 @@
       "id": "rd-dps-01",
       "branchId": "denpasar",
       "name": "Sales Denpasar 01",
-      "whatsapp": "6280000000101",
-      "isDummy": true,
+      "whatsapp": "6285784275473",
+      "isDummy": false,
       "active": true
     },
     "hours": "Setiap hari · 09.00–18.30 WITA",
@@ -35,7 +35,7 @@
       -8.581,
       115.177
     ],
-    "address": "Jl. Contoh, Badung, Bali (alamat dummy)",
+    "address": "Raya Sempidi 9 Mangupura, Sempidi, Kec. Mengwi, Kabupaten Badung, Bali 80351",
     "website": "/cabang/badung/",
     "isPreview": true,
     "mapPosition": [
@@ -47,8 +47,8 @@
       "id": "rd-bdg-01",
       "branchId": "badung",
       "name": "Sales Badung 01",
-      "whatsapp": "6280000000103",
-      "isDummy": true,
+      "whatsapp": "6285738231107",
+      "isDummy": false,
       "active": true
     },
     "slug": "badung",
@@ -62,7 +62,7 @@
       -8.539,
       115.325
     ],
-    "address": "Jl. Contoh, Gianyar, Bali (alamat dummy)",
+    "address": "No 17 R, Jl. Raya Sakah, Batuan Kaler, Kec. Sukawati, Kabupaten Gianyar, Bali 80582",
     "website": "/cabang/gianyar/",
     "isPreview": true,
     "mapPosition": [
@@ -74,8 +74,8 @@
       "id": "rd-gny-01",
       "branchId": "gianyar",
       "name": "Sales Gianyar 01",
-      "whatsapp": "6280000000105",
-      "isDummy": true,
+      "whatsapp": "6282339060468",
+      "isDummy": false,
       "active": true
     },
     "slug": "gianyar",
@@ -89,7 +89,7 @@
       -8.537,
       115.125
     ],
-    "address": "Jl. Contoh, Tabanan, Bali (alamat dummy)",
+    "address": "Jl. P.Nias No.23, Dauh Peken, Kec. Tabanan, Kabupaten Tabanan, Bali 82113",
     "website": "/cabang/tabanan/",
     "isPreview": true,
     "mapPosition": [
@@ -101,22 +101,22 @@
       "id": "rd-tbn-01",
       "branchId": "tabanan",
       "name": "Sales Tabanan 01",
-      "whatsapp": "6280000000107",
-      "isDummy": true,
+      "whatsapp": "6282236728186",
+      "isDummy": false,
       "active": true
     },
     "slug": "tabanan",
     "intro": "Mulai perjalanan mengenal EV bersama Raditya Tabanan. Diskusikan rute harian, kebutuhan baterai, dan kenyamanan berkendara sebelum menentukan pilihan."
   },
   {
-    "id": "buleleng",
-    "name": "Raditya Bali Buleleng",
-    "region": "Buleleng",
+    "id": "singaraja",
+    "name": "Raditya Bali Singaraja",
+    "region": "Singaraja",
     "coordinates": [
       -8.112,
       115.089
     ],
-    "address": "Jl. Contoh, Buleleng, Bali (alamat dummy)",
+    "address": "Banjar Dinas, Jl. Raya Kerobokan Jl. Raya Keloncing, Kerobokan, Kec. Sawan, Kabupaten Buleleng, Bali 81171",
     "website": "/cabang/singaraja/",
     "isPreview": true,
     "mapPosition": [
@@ -125,25 +125,25 @@
     ],
     "mapLabel": "Singaraja",
     "sales": {
-      "id": "rd-bll-01",
-      "branchId": "buleleng",
-      "name": "Sales Buleleng 01",
-      "whatsapp": "6280000000109",
-      "isDummy": true,
+      "id": "rd-sgr-01",
+      "branchId": "singaraja",
+      "name": "Sales Singaraja 01",
+      "whatsapp": "6282236728174",
+      "isDummy": false,
       "active": true
     },
     "slug": "singaraja",
-    "intro": "Untuk Anda di Singaraja dan wilayah Buleleng, kenali pilihan kendaraan listrik bersama Raditya. Temukan model dari katalog pusat dan konsultasikan kebutuhan Anda dengan tim cabang."
+    "intro": "Untuk Anda di Singaraja, kenali pilihan kendaraan listrik bersama Raditya. Temukan model dari katalog pusat dan konsultasikan kebutuhan Anda dengan tim cabang."
   },
   {
-    "id": "jembrana",
-    "name": "Raditya Bali Jembrana",
-    "region": "Jembrana",
+    "id": "negara",
+    "name": "Raditya Bali Negara",
+    "region": "Negara",
     "coordinates": [
       -8.357,
       114.623
     ],
-    "address": "Jl. Contoh, Jembrana, Bali (alamat dummy)",
+    "address": "Jl. Sandat No.5, Baler Bale Agung, Kec. Negara, Kabupaten Jembrana, Bali 82212",
     "website": "/cabang/negara/",
     "isPreview": true,
     "mapPosition": [
@@ -152,15 +152,15 @@
     ],
     "mapLabel": "Negara",
     "sales": {
-      "id": "rd-jmb-01",
-      "branchId": "jembrana",
-      "name": "Sales Jembrana 01",
-      "whatsapp": "6280000000111",
-      "isDummy": true,
+      "id": "rd-ngr-01",
+      "branchId": "negara",
+      "name": "Sales Negara 01",
+      "whatsapp": "6281337570152",
+      "isDummy": false,
       "active": true
     },
     "slug": "negara",
-    "intro": "Jelajahi pilihan mobilitas listrik bersama Raditya untuk Anda di Negara dan wilayah Jembrana. Mulai dengan mengenali kendaraan, lalu rencanakan kunjungan bersama tim cabang."
+    "intro": "Jelajahi pilihan mobilitas listrik bersama Raditya untuk Anda di Negara. Mulai dengan mengenali kendaraan, lalu rencanakan kunjungan bersama tim cabang."
   },
   {
     "id": "karangasem",
@@ -170,7 +170,7 @@
       -8.447,
       115.616
     ],
-    "address": "Jl. Contoh, Karangasem, Bali (alamat dummy)",
+    "address": "Jl. Achmad Yani No.37, Subagan, Kec. Karangasem, Kabupaten Karangasem, Bali 80813",
     "website": "/cabang/karangasem/",
     "isPreview": true,
     "mapPosition": [
@@ -182,8 +182,8 @@
       "id": "rd-krg-01",
       "branchId": "karangasem",
       "name": "Sales Karangasem 01",
-      "whatsapp": "6280000000113",
-      "isDummy": true,
+      "whatsapp": "6282339064174",
+      "isDummy": false,
       "active": true
     },
     "slug": "karangasem",
@@ -197,7 +197,7 @@
       -8.535,
       115.405
     ],
-    "address": "Jl. Contoh, Klungkung, Bali (alamat dummy)",
+    "address": "F98X+F28, Jl. Ngurah Rai, Semarapura Tengah, Kec. Klungkung, Kabupaten Klungkung, Bali 80716",
     "website": "/cabang/klungkung/",
     "isPreview": true,
     "mapPosition": [
@@ -209,38 +209,11 @@
       "id": "rd-klk-01",
       "branchId": "klungkung",
       "name": "Sales Klungkung 01",
-      "whatsapp": "6280000000115",
-      "isDummy": true,
+      "whatsapp": "6281246663225",
+      "isDummy": false,
       "active": true
     },
     "slug": "klungkung",
     "intro": "Jelajahi pilihan sepeda dan motor listrik bersama Raditya Klungkung. Tim cabang membantu menjelaskan model, proses pembelian, dan rencana kunjungan Anda."
-  },
-  {
-    "id": "bangli",
-    "name": "Raditya Bali Bangli",
-    "region": "Bangli",
-    "coordinates": [
-      -8.454,
-      115.354
-    ],
-    "address": "Jl. Contoh, Bangli, Bali (alamat dummy)",
-    "website": "/cabang/bangli/",
-    "isPreview": true,
-    "mapPosition": [
-      68,
-      49
-    ],
-    "mapLabel": "Bangli",
-    "sales": {
-      "id": "rd-bng-01",
-      "branchId": "bangli",
-      "name": "Sales Bangli 01",
-      "whatsapp": "6280000000117",
-      "isDummy": true,
-      "active": true
-    },
-    "slug": "bangli",
-    "intro": "Mulai mengenal pilihan EV bersama Raditya Bangli. Bandingkan spesifikasi kendaraan dan diskusikan kebutuhan daya serta rute harian Anda sebelum membeli."
   }
 ]

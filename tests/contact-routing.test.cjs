@@ -19,18 +19,18 @@ test('every branch routes to its own active sales person', () => {
   }
 });
 test('referral sales persists while delivery branch changes', () => {
-  const result = run({ referral, explicitBranchId:'klungkung', nearestBranchId:'buleleng', saved:manual('gianyar') });
+  const result = run({ referral, explicitBranchId:'klungkung', nearestBranchId:'singaraja', saved:manual('gianyar') });
   assert.equal(result.sales.id,'rd-dps-02');
   assert.equal(result.branch.id,'denpasar');
   assert.equal(result.serviceBranch.id,'klungkung');
 });
 test('branch URL beats earlier manual choice and geolocation', () => {
-  assert.equal(run({explicitBranchId:'gianyar', saved:manual('denpasar'), nearestBranchId:'buleleng'}).branch.id,'gianyar');
+  assert.equal(run({explicitBranchId:'gianyar', saved:manual('denpasar'), nearestBranchId:'singaraja'}).branch.id,'gianyar');
 });
 test('manual selection beats new geolocation', () => {
-  assert.equal(run({saved:manual('gianyar'), nearestBranchId:'buleleng'}).branch.id,'gianyar');
+  assert.equal(run({saved:manual('gianyar'), nearestBranchId:'singaraja'}).branch.id,'gianyar');
 });
-test('organic visitor uses the nearest branch, from all nine regions', () => {
+test('organic visitor uses the nearest branch, from all eight regions', () => {
   for (const branch of branches) {
     const ranked = rankBranches(branch.coordinates,branches);
     const result = run({nearestBranchId:ranked[0].id});
