@@ -5,7 +5,7 @@ const creditBranchSelect = document.getElementById('credit-branch');
 const creditMethodSelect = document.getElementById('credit-method');
 function updateCreditBranch() {
     const branch = creditBranches.find(item => item.id === creditBranchSelect.value);
-    const salesperson = creditReferral?.sales || branch?.sales;
+    const salesperson = creditReferral?.sales || window.radityaContact?.salesForBranch(branch?.id);
     const phone = creditFinance.normalizePhone(salesperson?.whatsapp);
     const button = document.getElementById('credit-submit');
     const label = document.getElementById('btn-submit-wa-text');
@@ -74,12 +74,19 @@ function updateCashSummary() {
     document.getElementById('cash-total-display').textContent = price > 0 ? creditFinance.rupiah(price + (deliveryReady ? currentOngkir : 0)) : 'Konfirmasi harga';
     document.getElementById('cash-total-note').textContent = price <= 0 ? 'Harga produk belum tersedia. Total pembayaran dikonfirmasi sales.' : deliveryReady ? 'Total estimasi harga produk + ongkir. Konfirmasi pembayaran kepada sales.' : 'Harga produk; ongkir ditambahkan setelah cabang dan titik rumah dipilih.';
 }
-creditBranchSelect.addEventListener('change', updateCreditBranch);
+creditBranchSelect.addEventListener('change', () => {
+    window.radityaContact?.chooseBranch(creditBranchSelect.value);
+    updateCreditBranch();
+});
+document.addEventListener('raditya:contact', event => {
+    const id = event.detail.serviceBranch?.id;
+    if (id && creditBranches.some(branch => branch.id === id)) { creditBranchSelect.value = id; updateCreditBranch(); }
+});
 document.getElementById('credit-payment').addEventListener('change', updateCreditSimulation);
 creditMethodSelect.addEventListener('change', updateCreditSimulation);
 (async () => {
     try {
-        const [branchResponse, methodResponse] = await Promise.all([fetch('branches.json'), fetch('financing.json')]);
+        const [branchResponse, methodResponse] = await Promise.all([fetch('branches.json?v=network-1'), fetch('financing.json')]);
         if (!branchResponse.ok || !methodResponse.ok) throw new Error('Configuration unavailable');
         [creditBranches, creditMethods] = await Promise.all([branchResponse.json(), methodResponse.json()]);
         creditBranchSelect.replaceChildren();
@@ -91,13 +98,8 @@ creditMethodSelect.addEventListener('change', updateCreditSimulation);
         creditBranchSelect.disabled = false; creditMethodSelect.disabled = false;
         creditReferral = await radityaReferral.ready;
         if (radityaReferral.failed) throw new Error('Referral unavailable');
-        if (creditReferral) {
-            creditBranchSelect.value = creditReferral.branch.id;
-            creditBranchSelect.disabled = false;
-        } else {
-            const branchId = new URLSearchParams(location.search).get('cabang');
-            if (creditBranches.some(branch => branch.id === branchId)) creditBranchSelect.value = branchId;
-        }
+        await radityaContact.ready;
+        creditBranchSelect.value = radityaContact.current?.serviceBranch?.id || '';
         updateCreditSimulation();
     } catch {
         document.getElementById('credit-sales-info').hidden = false;

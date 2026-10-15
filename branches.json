@@ -8,7 +8,7 @@
       115.2073586
     ],
     "address": "Jl. Teuku Umar No.130, Dauh Puri Kauh, Denpasar Barat, Kota Denpasar, Bali 80113",
-    "website": "cabang.html?cabang=denpasar",
+    "website": "/cabang/denpasar/",
     "isPreview": true,
     "mapPosition": [
       60,
@@ -23,7 +23,9 @@
       "isDummy": true,
       "active": true
     },
-    "hours": "Setiap hari · 09.00–18.30 WITA"
+    "hours": "Setiap hari · 09.00–18.30 WITA",
+    "slug": "denpasar",
+    "intro": "Dari perjalanan kerja hingga aktivitas harian di Denpasar, kenali pilihan sepeda dan motor listrik bersama tim Raditya. Mulai dari kebutuhan Anda, lalu diskusikan model yang sesuai."
   },
   {
     "id": "badung",
@@ -34,7 +36,7 @@
       115.177
     ],
     "address": "Jl. Contoh, Badung, Bali (alamat dummy)",
-    "website": "cabang.html?cabang=badung",
+    "website": "/cabang/badung/",
     "isPreview": true,
     "mapPosition": [
       58,
@@ -48,7 +50,9 @@
       "whatsapp": "6280000000103",
       "isDummy": true,
       "active": true
-    }
+    },
+    "slug": "badung",
+    "intro": "Kenali pilihan mobilitas listrik untuk rutinitas Anda di Badung. Tim Raditya membantu membahas kebutuhan perjalanan, model kendaraan, dan rencana pembelian Anda."
   },
   {
     "id": "gianyar",
@@ -59,7 +63,7 @@
       115.325
     ],
     "address": "Jl. Contoh, Gianyar, Bali (alamat dummy)",
-    "website": "cabang.html?cabang=gianyar",
+    "website": "/cabang/gianyar/",
     "isPreview": true,
     "mapPosition": [
       74,
@@ -73,7 +77,9 @@
       "whatsapp": "6280000000105",
       "isDummy": true,
       "active": true
-    }
+    },
+    "slug": "gianyar",
+    "intro": "Temukan pilihan sepeda dan motor listrik untuk keseharian Anda di Gianyar. Pelajari spesifikasi dari katalog pusat, lalu lanjutkan konsultasi bersama tim cabang."
   },
   {
     "id": "tabanan",
@@ -84,7 +90,7 @@
       115.125
     ],
     "address": "Jl. Contoh, Tabanan, Bali (alamat dummy)",
-    "website": "cabang.html?cabang=tabanan",
+    "website": "/cabang/tabanan/",
     "isPreview": true,
     "mapPosition": [
       43,
@@ -98,7 +104,9 @@
       "whatsapp": "6280000000107",
       "isDummy": true,
       "active": true
-    }
+    },
+    "slug": "tabanan",
+    "intro": "Mulai perjalanan mengenal EV bersama Raditya Tabanan. Diskusikan rute harian, kebutuhan baterai, dan kenyamanan berkendara sebelum menentukan pilihan."
   },
   {
     "id": "buleleng",
@@ -109,7 +117,7 @@
       115.089
     ],
     "address": "Jl. Contoh, Buleleng, Bali (alamat dummy)",
-    "website": "cabang.html?cabang=buleleng",
+    "website": "/cabang/singaraja/",
     "isPreview": true,
     "mapPosition": [
       51,
@@ -123,7 +131,9 @@
       "whatsapp": "6280000000109",
       "isDummy": true,
       "active": true
-    }
+    },
+    "slug": "singaraja",
+    "intro": "Untuk Anda di Singaraja dan wilayah Buleleng, kenali pilihan kendaraan listrik bersama Raditya. Temukan model dari katalog pusat dan konsultasikan kebutuhan Anda dengan tim cabang."
   },
   {
     "id": "jembrana",
@@ -134,7 +144,7 @@
       114.623
     ],
     "address": "Jl. Contoh, Jembrana, Bali (alamat dummy)",
-    "website": "cabang.html?cabang=jembrana",
+    "website": "/cabang/negara/",
     "isPreview": true,
     "mapPosition": [
       16,
@@ -148,7 +158,9 @@
       "whatsapp": "6280000000111",
       "isDummy": true,
       "active": true
-    }
+    },
+    "slug": "negara",
+    "intro": "Jelajahi pilihan mobilitas listrik bersama Raditya untuk Anda di Negara dan wilayah Jembrana. Mulai dengan mengenali kendaraan, lalu rencanakan kunjungan bersama tim cabang."
   },
   {
     "id": "karangasem",
@@ -159,7 +171,7 @@
       115.616
     ],
     "address": "Jl. Contoh, Karangasem, Bali (alamat dummy)",
-    "website": "cabang.html?cabang=karangasem",
+    "website": "/cabang/karangasem/",
     "isPreview": true,
     "mapPosition": [
       84,
@@ -173,7 +185,9 @@
       "whatsapp": "6280000000113",
       "isDummy": true,
       "active": true
-    }
+    },
+    "slug": "karangasem",
+    "intro": "Kenali kendaraan listrik untuk keseharian Anda di Karangasem. Ceritakan kebutuhan perjalanan dan karakter rute kepada tim Raditya agar konsultasi lebih terarah."
   },
   {
     "id": "klungkung",
@@ -184,7 +198,7 @@
       115.405
     ],
     "address": "Jl. Contoh, Klungkung, Bali (alamat dummy)",
-    "website": "cabang.html?cabang=klungkung",
+    "website": "/cabang/klungkung/",
     "isPreview": true,
     "mapPosition": [
       84,
@@ -198,7 +212,9 @@
       "whatsapp": "6280000000115",
       "isDummy": true,
       "active": true
-    }
+    },
+    "slug": "klungkung",
+    "intro": "Jelajahi pilihan sepeda dan motor listrik bersama Raditya Klungkung. Tim cabang membantu menjelaskan model, proses pembelian, dan rencana kunjungan Anda."
   },
   {
     "id": "bangli",
@@ -209,7 +225,7 @@
       115.354
     ],
     "address": "Jl. Contoh, Bangli, Bali (alamat dummy)",
-    "website": "cabang.html?cabang=bangli",
+    "website": "/cabang/bangli/",
     "isPreview": true,
     "mapPosition": [
       68,
@@ -223,6 +239,8 @@
       "whatsapp": "6280000000117",
       "isDummy": true,
       "active": true
-    }
+    },
+    "slug": "bangli",
+    "intro": "Mulai mengenal pilihan EV bersama Raditya Bangli. Bandingkan spesifikasi kendaraan dan diskusikan kebutuhan daya serta rute harian Anda sebelum membeli."
   }
 ]

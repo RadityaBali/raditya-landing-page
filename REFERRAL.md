@@ -1,13 +1,17 @@
 # Referral sales Raditya Bali
 
-Buka `referral-links.html` untuk menghasilkan dan menyalin link setiap sales. Format yang dipakai:
+Buka `referral-links.html` untuk membuat link setiap sales. Link baru langsung menuju halaman cabang, misalnya:
 
-`index.html?cabang=denpasar&ref=rd-dps-01`
+`/cabang/denpasar/?cabang=denpasar&ref=rd-dps-02`
 
-Kode `ref` mengacu ke `sales.json`; nomor WhatsApp tidak diambil dari parameter URL. Ada dua sales dummy per cabang. Ganti nomor, nama, dan status `active` pada file tersebut untuk memakai data asli. Sales pertama tiap cabang pada `branches.json` menjadi tujuan default pengunjung tanpa referral.
+Link lama `index.html?cabang=denpasar&ref=rd-dps-02` dan `cabang.html?cabang=denpasar&ref=rd-dps-02` tetap didukung.
 
-Link referral valid memilih cabang dan mempertahankan sales pada formulir pembelian tunai dan kredit. Tombol WhatsApp umum juga mengikuti referral. Pilihan cabang pengiriman dan metode pembiayaan tidak mengganti sales dari referral. Referral tetap dibawa ke halaman cabang pada domain yang sama dan disimpan selama 30 hari di browser yang sama. Link referral baru yang valid mengganti referral sebelumnya. Kode yang tidak dikenal tidak dipakai sebagai nomor WhatsApp dan kembali ke pemilihan cabang manual.
+Kode `ref` dicocokkan dengan sales aktif dalam `sales.json`; nomor WhatsApp tidak diterima dari parameter URL. Ada dua sales dummy untuk setiap cabang.
 
-Ketika penyimpanan browser dibatasi, referral dari URL tetap berfungsi saat halaman dibuka, serta diteruskan melalui link internal. Pengunjung yang menghapus penyimpanan atau beralih browser/perangkat perlu membuka link referral kembali. Implementasi ini untuk website statis; pencatatan komisi atau atribusi yang harus tahan manipulasi membutuhkan validasi server dan basis data.
+Referral valid mempertahankan sales pendamping pada tombol konsultasi umum serta pembelian cash/kredit. Mengubah cabang pengiriman tidak mengubah referral. Link referral valid yang baru mengganti referral sebelumnya; kode eksplisit tidak dikenal menghapus referral sebelumnya lalu menggunakan konteks cabang yang tersedia. Referral disimpan 30 hari pada browser yang sama dan dibawa melalui link internal.
 
-`financing.json` berisi contoh DP, bunga flat per bulan, serta tenor. Seluruh skema masih dummy dan bukan ketentuan resmi penyedia. Nominal simulasi belum mencakup biaya tambahan. Estimasi pengiriman menggunakan titik dummy cabang yang dipilih.
+Tanpa referral, kontak mengikuti halaman cabang, pilihan manual, atau lokasi terdekat. Tombol yang secara eksplisit menyebut cabang tetap menghubungi cabang tersebut. Aturan lengkap dan panduan publikasi ada di `SITE-NETWORK.md`.
+
+Atribusi ini berlangsung di browser. Pencatatan komisi, kepemilikan calon pelanggan, dan laporan penjualan yang tahan manipulasi membutuhkan validasi server dan basis data.
+
+Skema di `financing.json` masih contoh, bukan ketentuan resmi penyedia. Estimasi pengiriman memakai titik cabang dummy. Konfirmasikan data sebelum publikasi.

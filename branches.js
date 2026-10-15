@@ -13,7 +13,7 @@
     const nearestPanel = document.getElementById('branch-nearest');
     const formatDistance = distance => distance < 1 ? Math.round(distance * 1000) + ' m' : new Intl.NumberFormat('id-ID', { maximumFractionDigits: 1 }).format(distance) + ' km';
     try {
-        const response = await fetch('branches.json?v=unified-branches-1');
+        const response = await fetch('branches.json?v=network-1');
         if (!response.ok) throw new Error('Branch data unavailable');
         branches = await response.json();
     } catch {
@@ -21,7 +21,7 @@
         locate.disabled = true;
         return;
     }
-    if (window.radityaReferral) await radityaReferral.ready;
+    if (window.radityaContact) await radityaContact.ready;
     const safeWebsite = branch => {
         if (!branch.website) return null;
         try {
@@ -98,7 +98,7 @@
     });
     select.addEventListener('change', () => {
         const branch = branches.find(branch => branch.id === select.value);
-        if (branch) showBranch(branch);
+        if (branch) { showBranch(branch); window.radityaContact?.chooseBranch(branch.id); }
         else showBranch(branches[0]);
     });
     if (!branches.some(branch => branch.isPreview)) status.textContent = branches.length + ' cabang Raditya Bali';
@@ -132,7 +132,7 @@
             choice.type = 'button';
             choice.dataset.branchId = branch.id;
             choice.textContent = (index === 0 ? 'Terdekat · ' : '') + branch.region + ' · ' + formatDistance(branch.distanceKm);
-            choice.addEventListener('click', () => showBranch(branch));
+            choice.addEventListener('click', () => { showBranch(branch); window.radityaContact?.chooseBranch(branch.id); });
             nearestPanel.append(choice);
         });
         showBranch(ranked[0]);
@@ -143,34 +143,13 @@
         });
     }
     locate.addEventListener('click', () => {
-        if (!window.isSecureContext) {
-            setLocationStatus('Akses lokasi memerlukan koneksi HTTPS. Anda tetap bisa memilih cabang secara manual.', true);
-            return;
-        }
-        if (!navigator.geolocation) {
-            setLocationStatus('Browser Anda belum mendukung akses lokasi. Pilih cabang secara manual.', true);
-            return;
-        }
-        locate.disabled = true;
-        locate.setAttribute('aria-busy', 'true');
-        locate.querySelector('span').textContent = 'Mencari lokasi…';
-        setLocationStatus('Izinkan akses lokasi pada browser untuk menemukan cabang terdekat.');
-        function finish() {
-            locate.disabled = false;
-            locate.removeAttribute('aria-busy');
-            locate.querySelector('span').textContent = userPosition ? 'Perbarui lokasi saya' : 'Coba akses lokasi';
-        }
-        navigator.geolocation.getCurrentPosition(position => {
-            try { displayNearest(position); } finally { finish(); }
-        }, error => {
-            const messages = {
-                1: 'Akses lokasi belum diizinkan. Izinkan lokasi melalui pengaturan browser, atau pilih cabang secara manual.',
-                2: 'Lokasi belum tersedia. Aktifkan layanan lokasi perangkat, lalu coba lagi.',
-                3: 'Pencarian lokasi terlalu lama. Silakan coba lagi atau pilih cabang secara manual.'
-            };
-            setLocationStatus(messages[error.code] || 'Lokasi belum dapat ditemukan. Silakan coba lagi.', true);
-            finish();
-        }, { enableHighAccuracy: true, timeout: 15000, maximumAge: 60000 });
+        locationStatus.hidden = false;
+        window.radityaContact?.locate();
+    });
+    document.addEventListener('raditya:location', event => displayNearest(event.detail));
+    document.addEventListener('raditya:contact', event => {
+        const branch = branches.find(branch => branch.id === event.detail.serviceBranch?.id);
+        if (branch) showBranch(branch);
     });
 
     const pins = document.getElementById('branch-map-pins');
@@ -195,9 +174,9 @@
         name.textContent = branch.mapLabel || branch.region;
         face.append(icon, name);
         marker.append(face);
-        marker.addEventListener('click', () => showBranch(branch));
+        marker.addEventListener('click', () => { showBranch(branch); window.radityaContact?.chooseBranch(branch.id); });
         pins.append(marker);
         markers.set(branch.id, marker);
     });
-    showBranch(branches.find(branch => branch.id === 'denpasar') || branches[0]);
+    showBranch(branches.find(branch => branch.id === window.radityaContact?.current?.serviceBranch?.id) || branches[0]);
 })();

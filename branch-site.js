@@ -1,21 +1,15 @@
+/* Backward compatibility for links shared before dedicated branch URLs existed. */
 (async () => {
     try {
-        const response = await fetch('branches.json');
-        if (!response.ok) throw new Error('Data unavailable');
+        const response = await fetch('/branches.json?v=network-1');
+        if (!response.ok) throw new Error('Branch data unavailable');
         const branches = await response.json();
-        const id = new URLSearchParams(location.search).get('cabang');
-        const branch = branches.find(item => item.id === id);
-        if (!branch) {
-            document.getElementById('branch-name').textContent = 'Cabang belum ditemukan';
-            document.getElementById('branch-address').textContent = 'Kembali ke daftar cabang untuk memilih wilayah.';
-            return;
-        }
-        document.title = branch.name + ' — Website Contoh Cabang';
-        document.getElementById('branch-name').textContent = branch.name;
-        document.getElementById('branch-region').textContent = 'CABANG ' + branch.region.toUpperCase();
-        document.getElementById('region-label').textContent = 'RADITYA / ' + branch.region.toUpperCase();
-        document.getElementById('branch-address').textContent = branch.address;
+        const params = new URLSearchParams(location.search);
+        const branch = branches.find(item => item.id === params.get('cabang'));
+        const target = new URL(branch?.website || '/cabang/', location.origin);
+        if (params.has('ref')) target.searchParams.set('ref', params.get('ref'));
+        location.replace(target.href);
     } catch {
-        document.getElementById('branch-address').textContent = 'Data cabang belum dapat dimuat. Silakan muat ulang halaman.';
+        document.getElementById('legacy-branch-status').textContent = 'Halaman cabang belum dapat dibuka. Gunakan daftar cabang di bawah ini.';
     }
 })();

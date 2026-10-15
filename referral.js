@@ -11,7 +11,8 @@
         return { referral: { sales: salesperson, branch, expiresAt: explicit ? now + DURATION : saved.expiresAt }, invalid: false, clear: false };
     }
     function createLink(base, salesperson) {
-        const url = new URL('index.html', base);
+        const slug = { buleleng: 'singaraja', jembrana: 'negara' }[salesperson.branchId] || salesperson.branchId;
+        const url = new URL('cabang/' + slug + '/', base);
         url.search = ''; url.hash = '';
         url.searchParams.set('cabang', salesperson.branchId);
         url.searchParams.set('ref', salesperson.id);
@@ -20,11 +21,13 @@
     const api = { resolveReferral, createLink, KEY, DURATION };
     if (typeof module !== 'undefined' && module.exports) { module.exports = api; return; }
     root.radityaReferral = api;
+    const base = new URL('.', document.currentScript.src);
     api.ready = (async () => {
         try {
-            const responses = await Promise.all([fetch('sales.json'), fetch('branches.json')]);
+            const responses = await Promise.all([fetch(new URL('sales.json', base)), fetch(new URL('branches.json?v=network-1', base)), fetch(new URL('site-config.json', base))]);
             if (responses.some(response => !response.ok)) throw new Error('Referral configuration unavailable');
-            const [sales, branches] = await Promise.all(responses.map(response => response.json()));
+            const [sales, branches, config] = await Promise.all(responses.map(response => response.json()));
+            api.sales = sales; api.branches = branches; api.config = config;
             let saved;
             try { saved = JSON.parse(localStorage.getItem(KEY)); } catch { saved = null; }
             const result = resolveReferral(location.search, saved, sales, branches);
@@ -36,21 +39,14 @@
             api.invalid = result.invalid;
             if (result.referral) {
                 document.querySelectorAll('a[href]').forEach(link => {
+                    if (link.getAttribute('href').startsWith('#')) return;
                     const url = new URL(link.getAttribute('href'), location.href);
                     if (url.origin === location.origin && !url.searchParams.has('ref') && (url.pathname.endsWith('.html') || url.pathname.endsWith('/'))) {
                         url.searchParams.set('ref', result.referral.sales.id);
                         link.href = url.href;
-                    } else if (url.hostname === 'wa.me') {
-                        url.pathname = '/' + result.referral.sales.whatsapp;
-                        if (link.textContent.trim().startsWith('WhatsApp:')) link.textContent = 'WhatsApp: +' + result.referral.sales.whatsapp;
-                        link.href = url.href;
                     }
                 });
-                const banner = document.getElementById('sales-referral-banner');
-                if (banner) {
-                    banner.hidden = false;
-                    banner.textContent = `Anda terhubung dengan ${result.referral.sales.name} · ${result.referral.branch.region}${result.referral.sales.isDummy ? ' · Data dummy' : ''}`;
-                }
+
             }
             if (result.invalid) {
                 const banner = document.getElementById('sales-referral-banner');
