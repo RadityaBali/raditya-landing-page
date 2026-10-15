@@ -7,14 +7,23 @@
       -8.6743665,
       115.2073586
     ],
-    "address": "Jl. Contoh, Denpasar, Bali (alamat dummy)",
+    "address": "Jl. Teuku Umar No.130, Dauh Puri Kauh, Denpasar Barat, Kota Denpasar, Bali 80113",
     "website": "cabang.html?cabang=denpasar",
     "isPreview": true,
     "mapPosition": [
       60,
       84
     ],
-    "mapLabel": "Denpasar"
+    "mapLabel": "Denpasar",
+    "sales": {
+      "id": "rd-dps-01",
+      "branchId": "denpasar",
+      "name": "Sales Denpasar 01",
+      "whatsapp": "6280000000101",
+      "isDummy": true,
+      "active": true
+    },
+    "hours": "Setiap hari · 09.00–18.30 WITA"
   },
   {
     "id": "badung",
@@ -31,7 +40,15 @@
       58,
       72
     ],
-    "mapLabel": "Badung"
+    "mapLabel": "Badung",
+    "sales": {
+      "id": "rd-bdg-01",
+      "branchId": "badung",
+      "name": "Sales Badung 01",
+      "whatsapp": "6280000000103",
+      "isDummy": true,
+      "active": true
+    }
   },
   {
     "id": "gianyar",
@@ -48,7 +65,15 @@
       74,
       67
     ],
-    "mapLabel": "Gianyar"
+    "mapLabel": "Gianyar",
+    "sales": {
+      "id": "rd-gny-01",
+      "branchId": "gianyar",
+      "name": "Sales Gianyar 01",
+      "whatsapp": "6280000000105",
+      "isDummy": true,
+      "active": true
+    }
   },
   {
     "id": "tabanan",
@@ -65,7 +90,15 @@
       43,
       61
     ],
-    "mapLabel": "Tabanan"
+    "mapLabel": "Tabanan",
+    "sales": {
+      "id": "rd-tbn-01",
+      "branchId": "tabanan",
+      "name": "Sales Tabanan 01",
+      "whatsapp": "6280000000107",
+      "isDummy": true,
+      "active": true
+    }
   },
   {
     "id": "buleleng",
@@ -82,7 +115,15 @@
       51,
       9
     ],
-    "mapLabel": "Singaraja"
+    "mapLabel": "Singaraja",
+    "sales": {
+      "id": "rd-bll-01",
+      "branchId": "buleleng",
+      "name": "Sales Buleleng 01",
+      "whatsapp": "6280000000109",
+      "isDummy": true,
+      "active": true
+    }
   },
   {
     "id": "jembrana",
@@ -99,7 +140,15 @@
       16,
       39
     ],
-    "mapLabel": "Negara"
+    "mapLabel": "Negara",
+    "sales": {
+      "id": "rd-jmb-01",
+      "branchId": "jembrana",
+      "name": "Sales Jembrana 01",
+      "whatsapp": "6280000000111",
+      "isDummy": true,
+      "active": true
+    }
   },
   {
     "id": "karangasem",
@@ -116,7 +165,15 @@
       84,
       41
     ],
-    "mapLabel": "Karangasem"
+    "mapLabel": "Karangasem",
+    "sales": {
+      "id": "rd-krg-01",
+      "branchId": "karangasem",
+      "name": "Sales Karangasem 01",
+      "whatsapp": "6280000000113",
+      "isDummy": true,
+      "active": true
+    }
   },
   {
     "id": "klungkung",
@@ -133,7 +190,15 @@
       84,
       59
     ],
-    "mapLabel": "Klungkung"
+    "mapLabel": "Klungkung",
+    "sales": {
+      "id": "rd-klk-01",
+      "branchId": "klungkung",
+      "name": "Sales Klungkung 01",
+      "whatsapp": "6280000000115",
+      "isDummy": true,
+      "active": true
+    }
   },
   {
     "id": "bangli",
@@ -150,6 +215,14 @@
       68,
       49
     ],
-    "mapLabel": "Bangli"
+    "mapLabel": "Bangli",
+    "sales": {
+      "id": "rd-bng-01",
+      "branchId": "bangli",
+      "name": "Sales Bangli 01",
+      "whatsapp": "6280000000117",
+      "isDummy": true,
+      "active": true
+    }
   }
 ]

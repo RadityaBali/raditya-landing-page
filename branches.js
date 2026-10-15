@@ -4,7 +4,6 @@
     const select = document.getElementById('branch-select');
     const detail = document.getElementById('branch-map-detail');
     const status = document.getElementById('branch-map-status');
-    const reset = document.getElementById('branch-map-reset');
     const error = document.getElementById('branch-map-error');
     const markers = new Map();
     let branches;
@@ -14,7 +13,7 @@
     const nearestPanel = document.getElementById('branch-nearest');
     const formatDistance = distance => distance < 1 ? Math.round(distance * 1000) + ' m' : new Intl.NumberFormat('id-ID', { maximumFractionDigits: 1 }).format(distance) + ' km';
     try {
-        const response = await fetch('branches.json');
+        const response = await fetch('branches.json?v=unified-branches-1');
         if (!response.ok) throw new Error('Branch data unavailable');
         branches = await response.json();
     } catch {
@@ -22,10 +21,12 @@
         locate.disabled = true;
         return;
     }
+    if (window.radityaReferral) await radityaReferral.ready;
     const safeWebsite = branch => {
         if (!branch.website) return null;
         try {
             const url = new URL(branch.website, window.location.href);
+            if (window.radityaReferral?.current && url.origin === window.location.origin) url.searchParams.set('ref', radityaReferral.current.sales.id);
             return ['https:', 'http:'].includes(url.protocol) ? url.href : null;
         } catch { return null; }
     };
@@ -38,13 +39,23 @@
         const title = document.createElement('h4');
         title.textContent = branch.name;
         const address = document.createElement('p');
-        address.textContent = branch.isPreview ? 'Titik contoh wilayah. Alamat toko akan ditampilkan setelah dikonfirmasi.' : (branch.address || 'Hubungi tim untuk informasi alamat cabang.');
-        detail.append(label, title, address);
+        address.textContent = branch.address || 'Hubungi tim untuk informasi alamat cabang.';
+        const info = document.createElement('div');
+        info.className = 'branch-detail-info';
+        info.append(label, title, address);
+        if (branch.hours) {
+            const hours = document.createElement('p');
+            hours.textContent = branch.hours;
+            info.append(hours);
+        }
+        detail.append(info);
+        const actions = document.createElement('div');
+        actions.className = 'branch-detail-actions';
         if (userPosition) {
             const distance = document.createElement('p');
             distance.className = 'branch-distance-label';
             distance.textContent = formatDistance(branchDistance.distanceKm(userPosition, branch.coordinates)) + ' dari lokasi Anda · Jarak garis lurus';
-            detail.append(distance);
+            info.append(distance);
         }
         const website = safeWebsite(branch);
         if (website) {
@@ -54,13 +65,24 @@
             link.target = '_blank';
             link.rel = 'noopener noreferrer';
             link.textContent = 'Buka website cabang ↗';
-            detail.append(link);
+            actions.append(link);
         } else {
             const note = document.createElement('p');
             note.className = 'branch-website-pending';
             note.textContent = 'Website cabang belum tersedia.';
-            detail.append(note);
+            actions.append(note);
         }
+        const directions = document.createElement('a');
+        directions.className = 'branch-directions';
+        directions.href = 'https://www.google.com/maps/dir/?api=1&destination=' + encodeURIComponent(branch.coordinates.join(','));
+        directions.target = '_blank';
+        directions.rel = 'noopener noreferrer';
+        directions.textContent = 'Petunjuk arah ↗';
+        actions.append(directions);
+        detail.append(actions);
+        nearestPanel.querySelectorAll('button').forEach(button => {
+            button.setAttribute('aria-pressed', String(button.dataset.branchId === branch.id));
+        });
         markers.forEach((marker, id) => {
             marker.classList.toggle('is-selected', id === branch.id);
             if (id === branch.id) marker.setAttribute('aria-current', 'location');
@@ -72,26 +94,12 @@
         option.value = branch.id;
         option.textContent = branch.name;
         select.append(option);
-        const card = document.getElementById('wilayah-' + branch.id);
-        if (card) {
-            const website = safeWebsite(branch);
-            if (website) {
-                card.href = website;
-                card.setAttribute('aria-label', 'Buka website ' + branch.name);
-                card.querySelector('.dummy-tag').textContent = 'Website contoh cabang ↗';
-            } else {
-                card.href = '#branch-map';
-                card.removeAttribute('target');
-                card.setAttribute('aria-label', 'Lihat ' + branch.name + ' di peta, titik contoh');
-                card.querySelector('.dummy-tag').textContent = 'Lihat di peta ↗';
-                card.addEventListener('click', () => showBranch(branch));
-            }
-        }
+
     });
     select.addEventListener('change', () => {
         const branch = branches.find(branch => branch.id === select.value);
         if (branch) showBranch(branch);
-        else reset.click();
+        else showBranch(branches[0]);
     });
     if (!branches.some(branch => branch.isPreview)) status.textContent = branches.length + ' cabang Raditya Bali';
     function setLocationStatus(message, isError = false) {
@@ -116,37 +124,16 @@
         setLocationStatus('Lokasi ditemukan' + (accuracy ? ' · Akurasi sekitar ±' + formatDistance(accuracy / 1000) : '') + '. Jarak dihitung dalam garis lurus, bukan jarak perjalanan.' + (ranked.some(branch => branch.isPreview) ? ' Hasil menggunakan titik cabang dummy.' : ''));
         nearestPanel.hidden = false;
         nearestPanel.replaceChildren();
+        const caption = document.createElement('span');
+        caption.textContent = 'Di sekitar Anda';
+        nearestPanel.append(caption);
         ranked.slice(0, 3).forEach((branch, index) => {
-            const card = document.createElement('article');
-            card.className = 'nearest-card' + (index === 0 ? ' is-nearest' : '');
-            const label = document.createElement('span');
-            label.className = 'nearest-rank';
-            label.textContent = index === 0 ? 'TERDEKAT DARI ANDA' : 'ALTERNATIF ' + (index + 1);
-            const title = document.createElement('h4');
-            title.textContent = branch.name;
-            const distance = document.createElement('strong');
-            distance.textContent = formatDistance(branch.distanceKm);
-            const actions = document.createElement('div');
-            actions.className = 'nearest-actions';
-            const view = document.createElement('button');
-            view.type = 'button';
-            view.textContent = 'Lihat di peta';
-            view.addEventListener('click', () => {
-                showBranch(branch);
-                container.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'center' });
-            });
-            actions.append(view);
-            const website = safeWebsite(branch);
-            if (website) {
-                const link = document.createElement('a');
-                link.href = website;
-                link.target = '_blank';
-                link.rel = 'noopener noreferrer';
-                link.textContent = 'Website cabang ↗';
-                actions.append(link);
-            }
-            card.append(label, title, distance, actions);
-            nearestPanel.append(card);
+            const choice = document.createElement('button');
+            choice.type = 'button';
+            choice.dataset.branchId = branch.id;
+            choice.textContent = (index === 0 ? 'Terdekat · ' : '') + branch.region + ' · ' + formatDistance(branch.distanceKm);
+            choice.addEventListener('click', () => showBranch(branch));
+            nearestPanel.append(choice);
         });
         showBranch(ranked[0]);
         markers.forEach((marker, id) => marker.classList.toggle('is-nearest', id === ranked[0].id));
@@ -192,17 +179,12 @@
     image.addEventListener('load', () => { error.hidden = true; });
     branches.forEach(branch => {
         if (!Array.isArray(branch.mapPosition) || branch.mapPosition.length !== 2 || !branch.mapPosition.every(value => Number.isFinite(value) && value >= 0 && value <= 100)) return;
-        const website = safeWebsite(branch);
-        const marker = document.createElement(website ? 'a' : 'button');
+        const marker = document.createElement('button');
         marker.className = 'bali-branch-pin';
         marker.style.left = branch.mapPosition[0] + '%';
         marker.style.top = branch.mapPosition[1] + '%';
-        marker.setAttribute('aria-label', (website ? 'Buka website ' : 'Lihat ') + branch.name + (branch.isPreview ? ', data dummy' : ''));
-        if (website) {
-            marker.href = website;
-            marker.target = '_blank';
-            marker.rel = 'noopener noreferrer';
-        } else marker.type = 'button';
+        marker.setAttribute('aria-label', 'Lihat detail ' + branch.name + (branch.isPreview ? ', data dummy' : ''));
+        marker.type = 'button';
         const face = document.createElement('span');
         face.className = 'bali-pin-face';
         const icon = document.createElement('span');
@@ -217,13 +199,5 @@
         pins.append(marker);
         markers.set(branch.id, marker);
     });
-    reset.addEventListener('click', () => {
-        select.value = '';
-        detail.hidden = true;
-        detail.replaceChildren();
-        markers.forEach(marker => {
-            marker.classList.remove('is-selected');
-            marker.removeAttribute('aria-current');
-        });
-    });
+    showBranch(branches.find(branch => branch.id === 'denpasar') || branches[0]);
 })();

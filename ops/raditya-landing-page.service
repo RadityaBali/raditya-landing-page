@@ -1,0 +1,13 @@
+[Unit]
+Description=Raditya Bali landing page preview
+
+[Service]
+Type=simple
+WorkingDirectory=%h/Desktop/raditya-landing-page
+ExecStart=/usr/bin/python3 -m http.server 8000 --bind 127.0.0.1 --directory %h/Desktop/raditya-landing-page
+Restart=always
+RestartSec=5
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=default.target

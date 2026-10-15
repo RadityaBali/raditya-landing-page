@@ -1,0 +1,51 @@
+[
+  {
+    "id": "koperasi",
+    "name": "Kredit Koperasi Pegawai",
+    "downPaymentPercent": 0,
+    "monthlyInterestPercent": 0.4,
+    "tenors": [
+      12,
+      24,
+      36,
+      48
+    ],
+    "isDummy": true
+  },
+  {
+    "id": "kredivo",
+    "name": "Kredivo",
+    "downPaymentPercent": 20,
+    "monthlyInterestPercent": 1,
+    "tenors": [
+      3,
+      6,
+      12
+    ],
+    "isDummy": true
+  },
+  {
+    "id": "akulaku",
+    "name": "Akulaku",
+    "downPaymentPercent": 20,
+    "monthlyInterestPercent": 1.25,
+    "tenors": [
+      6,
+      12,
+      18
+    ],
+    "isDummy": true
+  },
+  {
+    "id": "home-credit",
+    "name": "Home Credit",
+    "downPaymentPercent": 25,
+    "monthlyInterestPercent": 1.5,
+    "tenors": [
+      12,
+      24,
+      36
+    ],
+    "isDummy": true
+  }
+]

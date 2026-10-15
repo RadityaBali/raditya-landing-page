@@ -127,3 +127,33 @@
 @media(max-width:1000px){.branch-map-controls{flex-wrap:wrap}.branch-map-controls .branch-location-bar{flex-basis:100%}.branch-map-controls .branch-map-actions{width:100%}.branch-map-controls .branch-map-actions select{flex:1;max-width:none}.bali-branch-pin{padding:9px 11px}.bali-pin-face{font-size:10px;padding:6px 7px}}
 @media(max-width:640px){#cabang{padding-top:58px}#cabang .branch-map-heading{gap:15px;margin-bottom:25px}#cabang .branch-map-heading .section-heading{font-size:30px}#cabang .branch-map-heading .intro-copy{font-size:12px;line-height:1.8}#cabang .branch-map-heading .kicker{font-size:7px;letter-spacing:.14em}#cabang .branch-map-stage{padding:0;margin-left:-10px;margin-right:-10px}.bali-branch-pin{padding:5px;border-radius:3px}.bali-pin-face{font-size:7px;padding:5px 5px;gap:2px}.bali-pin-icon svg{width:8px;height:10px}#bali-map-image{filter:drop-shadow(5px 7px 0 #52677825)}#cabang .branch-map-bottom{padding:19px 0;gap:7px;font-size:9px}#cabang #branch-map-status{font-size:8px}.branch-map-controls{padding:18px;gap:14px}#cabang .branch-location-bar{flex-direction:column;gap:12px}#cabang .branch-map-actions{gap:7px}#cabang .branch-map-actions select,#cabang .branch-map-actions button{font-size:9px;min-height:42px;padding:9px}#cabang .branch-location-bar p{font-size:10px}#cabang .branch-location-bar strong{font-size:12px}}
 @media(prefers-reduced-motion:reduce){.bali-branch-pin{transition:none}}
+
+.credit-branch-field label,.credit-method-field label{display:block;font-size:13px;font-weight:600;color:#294c5d;margin-bottom:8px}.credit-branch-field select,.credit-method-field select{width:100%;min-height:46px;padding:12px;border:1px solid #c9d9e0;border-radius:10px;background:#f6fafb;color:#204556;font:inherit;font-size:13px}.credit-branch-field p,.credit-method-field p{font-size:10px;line-height:1.7;color:#687f8d;margin-top:8px}.credit-method-field{padding-bottom:5px}.credit-method-field[hidden]{display:none}#credit-submit:disabled{opacity:.5;cursor:not-allowed}#credit-submit{line-height:1.5}#kredit-modal-content .radio-item{font-size:12px;line-height:1.6}
+.sales-referral-banner{padding:10px 24px;background:#dff7ee;color:#245548;text-align:center;font-size:11px;line-height:1.7}.sales-referral-banner[hidden]{display:none}
+
+/* One branch explorer: illustrated map and a single selected-branch panel. */
+#cabang .branch-map-panel{margin-bottom:0}
+#cabang .branch-explorer{max-width:1050px;margin:0 auto;border:1px solid #ffffffb0;border-radius:24px;background:#f5fafbdc;box-shadow:0 18px 50px #294b5f12;overflow:hidden}
+#cabang .branch-map-controls{padding:24px 28px;border:0;border-radius:0;background:none;backdrop-filter:none;gap:24px}
+#cabang .branch-location-bar{gap:18px}
+#cabang .branch-location-bar strong{font-size:14px;font-weight:600}
+#cabang .branch-map-actions select{background:#fff;border-color:#d7e4e9;max-width:270px;min-height:46px;font-size:12px}
+#cabang .branch-location-bar button{min-height:46px;background:#167e7a;border:0;font-size:11px}
+#cabang .branch-map-detail{display:flex;align-items:center;justify-content:space-between;gap:28px;background:#fff9;border:0;border-top:1px solid #dce8ed;border-radius:0;margin:0;padding:26px 28px}
+#cabang .branch-detail-info{max-width:620px}
+#cabang .branch-detail-info>span{font-size:9px;letter-spacing:.16em;color:#167e7a;font-weight:600}
+#cabang .branch-detail-info h4{font-size:24px;font-weight:600;margin:8px 0 10px;letter-spacing:-.03em}
+#cabang .branch-detail-info p{font-size:12px;line-height:1.8}
+#cabang .branch-detail-actions{display:flex;flex-direction:column;align-items:center;gap:14px;flex-shrink:0}
+#cabang .branch-detail-actions .pill-link{margin:0;background:#17546b;font-size:12px}
+#cabang .branch-directions{font-size:11px;color:#285d70;text-decoration:underline;text-underline-offset:4px}
+#cabang .branch-location-status{margin:0;padding:0 28px 18px;border-radius:0;background:none;font-size:10px}
+#cabang .branch-location-status.is-error{padding-top:12px;background:#fff0d5}
+#cabang .branch-nearest{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:0 28px 22px;background:none}
+#cabang .branch-nearest[hidden]{display:none}
+#cabang .branch-nearest>span{font-size:10px;color:#5e7780;margin-right:6px}
+#cabang .branch-nearest button{padding:10px 13px;border:1px solid #d2e2e5;border-radius:30px;background:#fff;color:#3d6270;font:inherit;font-size:10px;cursor:pointer}
+#cabang .branch-nearest button[aria-pressed=true]{background:#e1f6ef;border-color:#7ab9a9;color:#176a58}
+#cabang .branch-map-bottom{font-size:10px}
+@media(max-width:700px){#cabang .branch-map-controls{padding:22px;gap:18px}#cabang .branch-map-actions select{max-width:none;width:100%}#cabang .branch-map-detail{padding:22px;flex-direction:column;align-items:stretch;gap:22px}#cabang .branch-detail-info h4{font-size:22px}#cabang .branch-detail-actions{flex-direction:row;flex-wrap:wrap;gap:18px;justify-content:space-between}#cabang .branch-location-status{padding:0 22px 18px}#cabang .branch-nearest{padding:0 22px 22px}#cabang .branch-location-bar p{font-size:11px}#cabang .branch-explorer{border-radius:20px}}
+@media(max-width:640px){#cabang .bali-branch-pin{padding:1px}#cabang .bali-pin-face{line-height:1.25}}

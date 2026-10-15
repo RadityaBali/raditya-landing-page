@@ -1,0 +1,146 @@
+[
+  {
+    "id": "rd-dps-01",
+    "branchId": "denpasar",
+    "name": "Sales Denpasar 01",
+    "whatsapp": "6280000000101",
+    "isDummy": true,
+    "active": true
+  },
+  {
+    "id": "rd-dps-02",
+    "branchId": "denpasar",
+    "name": "Sales Denpasar 02",
+    "whatsapp": "6280000000102",
+    "isDummy": true,
+    "active": true
+  },
+  {
+    "id": "rd-bdg-01",
+    "branchId": "badung",
+    "name": "Sales Badung 01",
+    "whatsapp": "6280000000103",
+    "isDummy": true,
+    "active": true
+  },
+  {
+    "id": "rd-bdg-02",
+    "branchId": "badung",
+    "name": "Sales Badung 02",
+    "whatsapp": "6280000000104",
+    "isDummy": true,
+    "active": true
+  },
+  {
+    "id": "rd-gny-01",
+    "branchId": "gianyar",
+    "name": "Sales Gianyar 01",
+    "whatsapp": "6280000000105",
+    "isDummy": true,
+    "active": true
+  },
+  {
+    "id": "rd-gny-02",
+    "branchId": "gianyar",
+    "name": "Sales Gianyar 02",
+    "whatsapp": "6280000000106",
+    "isDummy": true,
+    "active": true
+  },
+  {
+    "id": "rd-tbn-01",
+    "branchId": "tabanan",
+    "name": "Sales Tabanan 01",
+    "whatsapp": "6280000000107",
+    "isDummy": true,
+    "active": true
+  },
+  {
+    "id": "rd-tbn-02",
+    "branchId": "tabanan",
+    "name": "Sales Tabanan 02",
+    "whatsapp": "6280000000108",
+    "isDummy": true,
+    "active": true
+  },
+  {
+    "id": "rd-bll-01",
+    "branchId": "buleleng",
+    "name": "Sales Buleleng 01",
+    "whatsapp": "6280000000109",
+    "isDummy": true,
+    "active": true
+  },
+  {
+    "id": "rd-bll-02",
+    "branchId": "buleleng",
+    "name": "Sales Buleleng 02",
+    "whatsapp": "6280000000110",
+    "isDummy": true,
+    "active": true
+  },
+  {
+    "id": "rd-jmb-01",
+    "branchId": "jembrana",
+    "name": "Sales Jembrana 01",
+    "whatsapp": "6280000000111",
+    "isDummy": true,
+    "active": true
+  },
+  {
+    "id": "rd-jmb-02",
+    "branchId": "jembrana",
+    "name": "Sales Jembrana 02",
+    "whatsapp": "6280000000112",
+    "isDummy": true,
+    "active": true
+  },
+  {
+    "id": "rd-krg-01",
+    "branchId": "karangasem",
+    "name": "Sales Karangasem 01",
+    "whatsapp": "6280000000113",
+    "isDummy": true,
+    "active": true
+  },
+  {
+    "id": "rd-krg-02",
+    "branchId": "karangasem",
+    "name": "Sales Karangasem 02",
+    "whatsapp": "6280000000114",
+    "isDummy": true,
+    "active": true
+  },
+  {
+    "id": "rd-klk-01",
+    "branchId": "klungkung",
+    "name": "Sales Klungkung 01",
+    "whatsapp": "6280000000115",
+    "isDummy": true,
+    "active": true
+  },
+  {
+    "id": "rd-klk-02",
+    "branchId": "klungkung",
+    "name": "Sales Klungkung 02",
+    "whatsapp": "6280000000116",
+    "isDummy": true,
+    "active": true
+  },
+  {
+    "id": "rd-bng-01",
+    "branchId": "bangli",
+    "name": "Sales Bangli 01",
+    "whatsapp": "6280000000117",
+    "isDummy": true,
+    "active": true
+  },
+  {
+    "id": "rd-bng-02",
+    "branchId": "bangli",
+    "name": "Sales Bangli 02",
+    "whatsapp": "6280000000118",
+    "isDummy": true,
+    "active": true
+  }
+]
