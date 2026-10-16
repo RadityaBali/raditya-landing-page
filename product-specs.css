@@ -42,6 +42,7 @@
 .product-spec-details{border-color:#e8eeed;padding:12px 0}.product-spec-details summary{font-size:10px;color:#80948f}.product-spec-details p{font-size:11px;line-height:1.9;color:#738b85}.product-spec-details>div{padding:8px 0 2px}
 .product-card-footer{margin-top:21px}.product-card-price>span{color:#81968f;font-size:10px}.product-card-price .product-price{color:#284b44!important}
 .product-card-actions .btn-outline{background:#328e7a!important;box-shadow:0 3px 10px #328e7a18;border-radius:9px!important}.product-card-actions .btn-outline:hover{background:#267964!important}.product-card-actions .btn-primary{color:#448e7f!important}
+.electronics-product-card .product-card-actions .btn-outline{display:inline-flex;align-items:center;justify-content:center;text-decoration:none}
 .product-vertical-card{border-color:#dfe8e5;box-shadow:0 8px 28px #264a3d08}.product-vertical-card:hover{border-color:#b9d5ca;box-shadow:0 12px 32px #264a3d10}
 #katalog-container .electronics-card{background:#fff;border-color:#e2ebe6;border-radius:17px!important;box-shadow:0 8px 28px #264a3d08}
 .electronics-card>img{background:linear-gradient(125deg,#f1f7f3,#f6faf8)!important}.electronics-card h3{color:#284b44}.electronics-spec-note{padding-top:14px;margin-top:15px!important;border-top:1px solid #e3ece6;color:#80948e!important;font-size:10px!important;line-height:1.8!important}.electronics-card .pill-link{background:#328e7a;border-radius:9px;color:white}
