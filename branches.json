@@ -9,6 +9,7 @@
     ],
     "address": "Jl. Gunung Sanghyang No.17R, Padangsambian, Kec. Denpasar Bar., Kota Denpasar, Bali 80117",
     "website": "/cabang/denpasar/",
+    "googleMapsQuery": "PT. Raditya Dewata Perkasa",
     "isPreview": true,
     "mapPosition": [
       60,
@@ -37,6 +38,7 @@
     ],
     "address": "Raya Sempidi 9 Mangupura, Sempidi, Kec. Mengwi, Kabupaten Badung, Bali 80351",
     "website": "/cabang/badung/",
+    "googleMapsQuery": "Raditya Badung - Galeri Teknologi",
     "isPreview": true,
     "mapPosition": [
       58,
@@ -64,6 +66,7 @@
     ],
     "address": "No 17 R, Jl. Raya Sakah, Batuan Kaler, Kec. Sukawati, Kabupaten Gianyar, Bali 80582",
     "website": "/cabang/gianyar/",
+    "googleMapsQuery": "Raditya Gianyar",
     "isPreview": true,
     "mapPosition": [
       74,
@@ -91,6 +94,7 @@
     ],
     "address": "Jl. P.Nias No.23, Dauh Peken, Kec. Tabanan, Kabupaten Tabanan, Bali 82113",
     "website": "/cabang/tabanan/",
+    "googleMapsQuery": "Raditya Tabanan",
     "isPreview": true,
     "mapPosition": [
       43,
@@ -118,6 +122,7 @@
     ],
     "address": "Banjar Dinas, Jl. Raya Kerobokan Jl. Raya Keloncing, Kerobokan, Kec. Sawan, Kabupaten Buleleng, Bali 81171",
     "website": "/cabang/singaraja/",
+    "googleMapsQuery": "Raditya Singaraja - Cash & Kredit Sepeda Listrik dan Elektronik Bali",
     "isPreview": true,
     "mapPosition": [
       51,
@@ -145,6 +150,7 @@
     ],
     "address": "Jl. Sandat No.5, Baler Bale Agung, Kec. Negara, Kabupaten Jembrana, Bali 82212",
     "website": "/cabang/negara/",
+    "googleMapsQuery": "Raditya Negara - Cash & Kredit Sepeda Listrik dan Elektronik",
     "isPreview": true,
     "mapPosition": [
       16,
@@ -172,6 +178,7 @@
     ],
     "address": "Jl. Achmad Yani No.37, Subagan, Kec. Karangasem, Kabupaten Karangasem, Bali 80813",
     "website": "/cabang/karangasem/",
+    "googleMapsQuery": "Raditya Karangasem - Cash & Kredit Elektronik dan Furniture",
     "isPreview": true,
     "mapPosition": [
       84,
@@ -199,6 +206,7 @@
     ],
     "address": "F98X+F28, Jl. Ngurah Rai, Semarapura Tengah, Kec. Klungkung, Kabupaten Klungkung, Bali 80716",
     "website": "/cabang/klungkung/",
+    "googleMapsQuery": "Raditya Klungkung - Jual Sepeda Listrik & Elektronik | Cash & Kredit",
     "isPreview": true,
     "mapPosition": [
       84,
