@@ -1,16 +1,16 @@
 [
   {
-    "id": "koperasi",
-    "name": "Kredit Koperasi Pegawai",
-    "downPaymentPercent": 0,
-    "monthlyInterestPercent": 0.4,
+    "id": "mandiri",
+    "name": "Mandiri Utama Finance",
+    "downPaymentPercent": 20,
+    "monthlyInterestPercent": 0,
     "tenors": [
       12,
-      24,
-      36,
-      48
+      21,
+      33,
+      45
     ],
-    "isDummy": true
+    "isDummy": false
   },
   {
     "id": "kredivo",
@@ -25,29 +25,5 @@
       36
     ],
     "isDummy": false
-  },
-  {
-    "id": "akulaku",
-    "name": "Akulaku",
-    "downPaymentPercent": 20,
-    "monthlyInterestPercent": 1.25,
-    "tenors": [
-      6,
-      12,
-      18
-    ],
-    "isDummy": true
-  },
-  {
-    "id": "home-credit",
-    "name": "Home Credit",
-    "downPaymentPercent": 25,
-    "monthlyInterestPercent": 1.5,
-    "tenors": [
-      12,
-      24,
-      36
-    ],
-    "isDummy": true
   }
 ]

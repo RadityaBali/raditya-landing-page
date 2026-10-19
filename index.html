@@ -372,7 +372,7 @@
     <link rel="stylesheet" href="glass-theme.css?v=unified-branches-2">
     <link rel="stylesheet" href="credit-style.css?v=close-2">
     <link rel="stylesheet" href="product-specs.css?v=ev-specs-2">
-    <link rel="stylesheet" href="network.css?v=curved-hero-3">
+    <link rel="stylesheet" href="network.css?v=curved-hero-9">
     <script
         type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Apa saja produk yang tersedia di Raditya Bali?", "acceptedAnswer": {"@type": "Answer", "text": "Raditya Bali menyediakan sepeda listrik, motor listrik, dan elektronik dari berbagai merek. Buka kategori produk untuk melihat pilihan model dan detailnya."}}, {"@type": "Question", "name": "Di mana showroom Raditya Bali di Bali?", "acceptedAnswer": {"@type": "Answer", "text": "Alamat showroom yang tercantum adalah Jl. Teuku Umar No.130, Dauh Puri Kauh, Denpasar Barat, Bali 80113. Hubungi admin untuk konfirmasi lokasi terdekat di kabupaten Anda."}}, {"@type": "Question", "name": "Apakah bisa membeli secara tunai atau kredit?", "acceptedAnswer": {"@type": "Answer", "text": "Klik Beli Sekarang pada kendaraan pilihan Anda, lalu pilih cabang dan pembayaran cash atau kredit. Untuk kredit, pilih metode pembiayaan serta tenor yang tersedia. Simulasi bersifat perkiraan; harga, persyaratan, dan persetujuan dikonfirmasi bersama sales."}}, {"@type": "Question", "name": "Bagaimana cara mengetahui garansi dan layanan purnajual?", "acceptedAnswer": {"@type": "Answer", "text": "Konsultasikan model yang Anda pilih kepada tim Raditya Bali untuk mendapatkan rincian garansi, ketentuan servis, dan layanan purnajual yang berlaku."}}, {"@type": "Question", "name": "Apakah kendaraan bisa dikirim ke kabupaten lain di Bali?", "acceptedAnswer": {"@type": "Answer", "text": "Hubungi admin dengan menyebutkan model kendaraan dan alamat tujuan. Tim akan membantu mengonfirmasi cakupan pengiriman, biaya, serta estimasi waktu untuk wilayah Anda."}}]}</script>
     <link rel="canonical" href="https://radityabali.com/">
@@ -513,26 +513,20 @@
                                 <strong>Maka Motors &amp; VinFast</strong>
                             </div>
                         </article>
-                    </div>
-                </div>
 
-                <div class="wrap hero-pano-controls" aria-label="Navigasi galeri hero">
-                    <button type="button" class="hero-pano-nav-btn" id="hero-pano-prev"
-                        aria-label="Geser galeri ke kiri">←</button>
-                    <div class="hero-pano-dots" role="tablist" aria-label="Pilih kartu galeri">
-                        <button type="button" class="hero-pano-dot" data-slide="0"
-                            aria-label="Sepeda Listrik Pilihan"></button>
-                        <button type="button" class="hero-pano-dot" data-slide="1"
-                            aria-label="Showroom dan Koleksi EV"></button>
-                        <button type="button" class="hero-pano-dot is-active" data-slide="2"
-                            aria-label="Maka Cavalry Unggulan"></button>
-                        <button type="button" class="hero-pano-dot" data-slide="3"
-                            aria-label="Gadget dan Elektronik"></button>
-                        <button type="button" class="hero-pano-dot" data-slide="4"
-                            aria-label="Motor Listrik Harian"></button>
+                        <!-- Card 5: Off-screen buffer card for seamless 360 cylinder loop -->
+                        <article class="hero-pano-card pano-theme-crimson" data-pano-index="5" data-pos="3"
+                            onclick="handleHeroCardClick(5, 'motor')" tabindex="0" role="button"
+                            aria-label="Motor Listrik VinFast Evo dengan Sistem Baterai LFP">
+                            <img src="image/image%20produk/motor%20listrik/vinfast%20evo.png"
+                                alt="Motor listrik VinFast Evo" width="640" height="400" fetchpriority="low">
+                            <div class="hero-pano-wall-text" aria-hidden="true">VINFAST<br>EVO LFP<br>SERIES.</div>
+                            <div class="hero-pano-caption">
+                                <span>DESAIN MODERN · BATERAI LFP</span>
+                                <strong>VinFast Evo Series</strong>
+                            </div>
+                        </article>
                     </div>
-                    <button type="button" class="hero-pano-nav-btn" id="hero-pano-next"
-                        aria-label="Geser galeri ke kanan">→</button>
                 </div>
             </div>
 
@@ -1211,11 +1205,10 @@
                                             class="text-electric font-medium text-[16px] mb-6 product-price">Rp 19.700.000</div>
                                     </div>
                                     <div class="product-card-actions">
-                                        <button type="button" id="btn-evo-cash"
-                                            onclick="openKreditModal('Vinfast Evo', 'motor', 'cash')"
+                                        <button type="button" id="btn-evo"
+                                            onclick="openKreditModal('Vinfast Evo', 'motor', 'kredit')"
                                             class="btn-outline hover:bg-gray-50 text-carbon border-cloud"
-                                            style="padding: 0 1.8rem; min-height: 48px; display: inline-flex; align-items: center; justify-content: center; font-size: 14.5px;">Beli
-                                            Sekarang</button>
+                                            style="padding: 0 1.8rem; min-height: 48px; display: inline-flex; align-items: center; justify-content: center; font-size: 14.5px;">Dapatkan Sekarang</button>
                                     </div>
                                 </div>
                             </div>
@@ -1291,11 +1284,10 @@
                                             class="text-electric font-medium text-[16px] mb-6 product-price">Rp 20.700.000</div>
                                     </div>
                                     <div class="product-card-actions">
-                                        <button type="button" id="btn-feliz-cash"
-                                            onclick="openKreditModal('Vinfast Feliz II', 'motor', 'cash')"
+                                        <button type="button" id="btn-feliz"
+                                            onclick="openKreditModal('Vinfast Feliz II', 'motor', 'kredit')"
                                             class="btn-outline hover:bg-gray-50 text-carbon border-cloud"
-                                            style="padding: 0 1.8rem; min-height: 48px; display: inline-flex; align-items: center; justify-content: center; font-size: 14.5px;">Beli
-                                            Sekarang</button>
+                                            style="padding: 0 1.8rem; min-height: 48px; display: inline-flex; align-items: center; justify-content: center; font-size: 14.5px;">Dapatkan Sekarang</button>
                                     </div>
                                 </div>
                             </div>
@@ -1371,11 +1363,10 @@
                                             class="text-electric font-medium text-[16px] mb-6 product-price">Rp 24.000.000</div>
                                     </div>
                                     <div class="product-card-actions">
-                                        <button type="button" id="btn-viper-cash"
-                                            onclick="openKreditModal('Vinfast Viper', 'motor', 'cash')"
+                                        <button type="button" id="btn-viper"
+                                            onclick="openKreditModal('Vinfast Viper', 'motor', 'kredit')"
                                             class="btn-outline hover:bg-gray-50 text-carbon border-cloud"
-                                            style="padding: 0 1.8rem; min-height: 48px; display: inline-flex; align-items: center; justify-content: center; font-size: 14.5px;">Beli
-                                            Sekarang</button>
+                                            style="padding: 0 1.8rem; min-height: 48px; display: inline-flex; align-items: center; justify-content: center; font-size: 14.5px;">Dapatkan Sekarang</button>
                                     </div>
                                 </div>
                             </div>
@@ -1834,6 +1825,11 @@
                             <option value="cash">Cash / Tunai</option>
                             <option value="kredit">Kredit / Cicilan</option>
                         </select></div>
+                    <div class="form-group credit-variant-field" id="credit-variant-group" hidden><label for="credit-variant">Pilihan Baterai / Varian</label><select id="credit-variant">
+                            <option value="subscription">Battery Subscription</option>
+                            <option value="1-battery">1 Baterai</option>
+                            <option value="2-batteries">2 Baterai</option>
+                        </select></div>
                     <div class="credit-cash-summary" id="credit-cash-summary" aria-live="polite"><span
                             class="credit-cash-label">TOTAL PEMBELIAN CASH</span><strong id="cash-total-display">Pilih
                             produk</strong>
@@ -1851,7 +1847,7 @@
                     </div>
                     <div class="credit-estimate-card" id="kredit-info-box">
                         <div class="credit-estimate-head"><span id="credit-installment-label">Estimasi angsuran per bulan</span><span
-                                class="credit-demo-badge">Simulasi dummy</span></div>
+                                class="credit-demo-badge">Skema Resmi</span></div>
                         <div class="credit-estimate-amount"><strong id="kredit-interest-display">Rp -</strong><span>/
                                 bulan</span></div>
                         <div class="credit-estimate-details">
@@ -1869,9 +1865,11 @@
                         <p id="credit-method-note">Simulasi dummy, bukan ketentuan resmi penyedia. Ketersediaan metode
                             perlu dikonfirmasi kepada sales.</p>
                     </div>
+                    <div class="form-group credit-dp-field" id="credit-dp-group" hidden><label for="credit-dp-select">Pilih Uang Muka (DP)</label><select id="credit-dp-select">
+                        </select></div>
                     <div class="form-group" id="kredit-tenor-group">
-                        <label class="block mb-2 font-semibold text-sm text-graphite">Pilih Durasi Cicilan</label>
-                        <div class="radio-group flex flex-col gap-2.5" id="kredit-radio-group">
+                        <label class="block mb-2 font-semibold text-sm text-graphite" for="kredit-radio-group">Pilih Durasi Cicilan (Tenor)</label>
+                        <div class="radio-group" id="kredit-radio-group">
                             <!-- Radio items will be generated dynamically -->
                         </div>
                     </div>
@@ -2064,94 +2062,175 @@
                     { tenor: 48, installment: 956083 }
                 ]
             },
-            'Vinfast Evo (1 Baterai)': {
-                price: 19700000,
-                rate: 0.004,
-                tenors: [
-                    { tenor: 12, installment: 0 },
-                    { tenor: 24, installment: 0 },
-                    { tenor: 36, installment: 0 },
-                    { tenor: 48, installment: 0 }
-                ]
-            },
-            'Vinfast Evo (2 Baterai)': {
-                price: 19700000,
-                rate: 0.004,
-                tenors: [
-                    { tenor: 12, installment: 0 },
-                    { tenor: 24, installment: 0 },
-                    { tenor: 36, installment: 0 },
-                    { tenor: 48, installment: 0 }
-                ]
-            },
-            'Vinfast Feliz 2 (1 Baterai)': {
-                price: 20700000,
-                rate: 0.004,
-                tenors: [
-                    { tenor: 12, installment: 0 },
-                    { tenor: 24, installment: 0 },
-                    { tenor: 36, installment: 0 },
-                    { tenor: 48, installment: 0 }
-                ]
-            },
-            'Vinfast Feliz 2 (2 Baterai)': {
-                price: 20700000,
-                rate: 0.004,
-                tenors: [
-                    { tenor: 12, installment: 0 },
-                    { tenor: 24, installment: 0 },
-                    { tenor: 36, installment: 0 },
-                    { tenor: 48, installment: 0 }
-                ]
-            },
-            'Vinfast Viper (1 Baterai)': {
-                price: 24000000,
-                rate: 0.004,
-                tenors: [
-                    { tenor: 12, installment: 0 },
-                    { tenor: 24, installment: 0 },
-                    { tenor: 36, installment: 0 },
-                    { tenor: 48, installment: 0 }
-                ]
-            },
-            'Vinfast Viper (2 Baterai)': {
-                price: 24000000,
-                rate: 0.004,
-                tenors: [
-                    { tenor: 12, installment: 0 },
-                    { tenor: 24, installment: 0 },
-                    { tenor: 36, installment: 0 },
-                    { tenor: 48, installment: 0 }
-                ]
-            },
             'Vinfast Evo': {
-                price: 19700000,
-                kredivo: {
-                    12: [{ from: 1, to: 12, installment: 1887917 }],
-                    18: [{ from: 1, to: 12, installment: 1258611 }, { from: 13, to: 18, installment: 1486474 }],
-                    24: [{ from: 1, to: 12, installment: 943958 }, { from: 13, to: 24, installment: 1212863 }],
-                    30: [{ from: 1, to: 12, installment: 755167 }, { from: 13, to: 30, installment: 1048697 }],
-                    36: [{ from: 1, to: 12, installment: 629306 }, { from: 13, to: 36, installment: 873914 }]
+                name: 'Vinfast Evo',
+                defaultVariant: 'subscription',
+                variants: {
+                    'subscription': {
+                        label: 'Battery Subscription',
+                        price: 19700000,
+                        kredivo: {
+                            12: [{ from: 1, to: 12, installment: 1887917 }],
+                            18: [{ from: 1, to: 12, installment: 1258611 }, { from: 13, to: 18, installment: 1486474 }],
+                            24: [{ from: 1, to: 12, installment: 943958 }, { from: 13, to: 24, installment: 1212863 }],
+                            30: [{ from: 1, to: 12, installment: 755167 }, { from: 13, to: 30, installment: 1048697 }],
+                            36: [{ from: 1, to: 12, installment: 629306 }, { from: 13, to: 36, installment: 873914 }]
+                        },
+                        mandiri: {
+                            4000000: { 12: 1720000, 21: 1098000, 33: 798000, 45: 673000 },
+                            4500000: { 12: 1669000, 21: 1066000, 33: 775000, 45: 654000 },
+                            5000000: { 12: 1619000, 21: 1034000, 33: 752000, 45: 634000 },
+                            5500000: { 12: 1568000, 21: 1002000, 33: 728000, 45: 615000 }
+                        }
+                    },
+                    '1-battery': {
+                        label: '1 Baterai',
+                        price: 23500000,
+                        kredivo: {
+                            12: [{ from: 1, to: 12, installment: 2252083 }],
+                            18: [{ from: 1, to: 12, installment: 1501389 }, { from: 13, to: 18, installment: 1773206 }],
+                            24: [{ from: 1, to: 12, installment: 1126042 }, { from: 13, to: 24, installment: 1446817 }],
+                            30: [{ from: 1, to: 12, installment: 900833 }, { from: 13, to: 30, installment: 1250983 }],
+                            36: [{ from: 1, to: 12, installment: 750694 }, { from: 13, to: 36, installment: 1042486 }]
+                        },
+                        mandiri: {
+                            5000000: { 12: 2007000, 21: 1282000, 33: 931000, 45: 786000 },
+                            5500000: { 12: 1956000, 21: 1249000, 33: 908000, 45: 766000 },
+                            6000000: { 12: 1905000, 21: 1217000, 33: 885000, 45: 747000 },
+                            7000000: { 12: 1804000, 21: 1153000, 33: 838000, 45: 708000 }
+                        }
+                    },
+                    '2-batteries': {
+                        label: '2 Baterai',
+                        price: 27000000,
+                        kredivo: {
+                            12: [{ from: 1, to: 12, installment: 2587500 }],
+                            18: [{ from: 1, to: 12, installment: 1725000 }, { from: 13, to: 18, installment: 2037300 }],
+                            24: [{ from: 1, to: 12, installment: 1293750 }, { from: 13, to: 24, installment: 1662300 }],
+                            30: [{ from: 1, to: 12, installment: 1035000 }, { from: 13, to: 30, installment: 1437300 }],
+                            36: [{ from: 1, to: 12, installment: 862500 }, { from: 13, to: 36, installment: 1197750 }]
+                        },
+                        mandiri: {
+                            5500000: { 12: 2313000, 21: 1477000, 33: 1074000, 45: 906000 },
+                            6000000: { 12: 2263000, 21: 1445000, 33: 1051000, 45: 886000 },
+                            7000000: { 12: 2161000, 21: 1381000, 33: 1004000, 45: 847000 },
+                            7500000: { 12: 2111000, 21: 1349000, 33: 981000, 45: 828000 }
+                        }
+                    }
                 }
             },
             'Vinfast Feliz II': {
-                price: 20700000,
-                kredivo: {
-                    12: [{ from: 1, to: 12, installment: 1983750 }],
-                    18: [{ from: 1, to: 12, installment: 1322500 }, { from: 13, to: 18, installment: 1561930 }],
-                    24: [{ from: 1, to: 12, installment: 991875 }, { from: 13, to: 24, installment: 1274430 }],
-                    30: [{ from: 1, to: 12, installment: 793500 }, { from: 13, to: 30, installment: 1101930 }],
-                    36: [{ from: 1, to: 12, installment: 661250 }, { from: 13, to: 36, installment: 918275 }]
+                name: 'Vinfast Feliz II',
+                defaultVariant: 'subscription',
+                variants: {
+                    'subscription': {
+                        label: 'Battery Subscription',
+                        price: 20700000,
+                        kredivo: {
+                            12: [{ from: 1, to: 12, installment: 1983750 }],
+                            18: [{ from: 1, to: 12, installment: 1322500 }, { from: 13, to: 18, installment: 1561930 }],
+                            24: [{ from: 1, to: 12, installment: 991875 }, { from: 13, to: 24, installment: 1274430 }],
+                            30: [{ from: 1, to: 12, installment: 793500 }, { from: 13, to: 30, installment: 1101930 }],
+                            36: [{ from: 1, to: 12, installment: 661250 }, { from: 13, to: 36, installment: 918275 }]
+                        },
+                        mandiri: {
+                            4500000: { 12: 1771000, 21: 1131000, 33: 822000, 45: 694000 },
+                            5000000: { 12: 1721000, 21: 1099000, 33: 799000, 45: 674000 },
+                            5500000: { 12: 1670000, 21: 1067000, 33: 776000, 45: 655000 },
+                            6000000: { 12: 1619000, 21: 1035000, 33: 753000, 45: 635000 }
+                        }
+                    },
+                    '1-battery': {
+                        label: '1 Baterai',
+                        price: 24500000,
+                        kredivo: {
+                            12: [{ from: 1, to: 12, installment: 2347917 }],
+                            18: [{ from: 1, to: 12, installment: 1565278 }, { from: 13, to: 18, installment: 1848661 }],
+                            24: [{ from: 1, to: 12, installment: 1173958 }, { from: 13, to: 24, installment: 1508383 }],
+                            30: [{ from: 1, to: 12, installment: 939167 }, { from: 13, to: 30, installment: 1304217 }],
+                            36: [{ from: 1, to: 12, installment: 782639 }, { from: 13, to: 36, installment: 1086847 }]
+                        },
+                        mandiri: {
+                            5000000: { 12: 2109000, 21: 1347000, 33: 979000, 45: 826000 },
+                            6000000: { 12: 2007000, 21: 1282000, 33: 932000, 45: 787000 },
+                            7000000: { 12: 1906000, 21: 1218000, 33: 886000, 45: 748000 },
+                            8000000: { 12: 1804000, 21: 1154000, 33: 839000, 45: 709000 }
+                        }
+                    },
+                    '2-batteries': {
+                        label: '2 Baterai',
+                        price: 28000000,
+                        kredivo: {
+                            12: [{ from: 1, to: 12, installment: 2683333 }],
+                            18: [{ from: 1, to: 12, installment: 1788889 }, { from: 13, to: 18, installment: 2112756 }],
+                            24: [{ from: 1, to: 12, installment: 1341667 }, { from: 13, to: 24, installment: 1723867 }],
+                            30: [{ from: 1, to: 12, installment: 1073333 }, { from: 13, to: 30, installment: 1490533 }],
+                            36: [{ from: 1, to: 12, installment: 894444 }, { from: 13, to: 36, installment: 1242111 }]
+                        },
+                        mandiri: {
+                            6000000: { 12: 2365000, 21: 1510000, 33: 1098000, 45: 926000 },
+                            7000000: { 12: 2263000, 21: 1446000, 33: 1051000, 45: 887000 },
+                            8000000: { 12: 2162000, 21: 1382000, 33: 1005000, 45: 848000 },
+                            9000000: { 12: 2060000, 21: 1317000, 33: 958000, 45: 809000 }
+                        }
+                    }
                 }
             },
             'Vinfast Viper': {
-                price: 24000000,
-                kredivo: {
-                    12: [{ from: 1, to: 12, installment: 2300000 }],
-                    18: [{ from: 1, to: 12, installment: 1533333 }, { from: 13, to: 18, installment: 1810933 }],
-                    24: [{ from: 1, to: 12, installment: 1150000 }, { from: 13, to: 24, installment: 1477600 }],
-                    30: [{ from: 1, to: 12, installment: 920000 }, { from: 13, to: 30, installment: 1277600 }],
-                    36: [{ from: 1, to: 12, installment: 766667 }, { from: 13, to: 36, installment: 1064667 }]
+                name: 'Vinfast Viper',
+                defaultVariant: 'subscription',
+                variants: {
+                    'subscription': {
+                        label: 'Battery Subscription',
+                        price: 24000000,
+                        kredivo: {
+                            12: [{ from: 1, to: 12, installment: 2300000 }],
+                            18: [{ from: 1, to: 12, installment: 1533333 }, { from: 13, to: 18, installment: 1810933 }],
+                            24: [{ from: 1, to: 12, installment: 1150000 }, { from: 13, to: 24, installment: 1477600 }],
+                            30: [{ from: 1, to: 12, installment: 920000 }, { from: 13, to: 30, installment: 1277600 }],
+                            36: [{ from: 1, to: 12, installment: 766667 }, { from: 13, to: 36, installment: 1064667 }]
+                        },
+                        mandiri: {
+                            5000000: { 12: 2058000, 21: 1314000, 33: 955000, 45: 806000 },
+                            6000000: { 12: 1956000, 21: 1250000, 33: 909000, 45: 767000 },
+                            7000000: { 12: 1855000, 21: 1185000, 33: 862000, 45: 728000 },
+                            8000000: { 12: 1753000, 21: 1121000, 33: 816000, 45: 689000 }
+                        }
+                    },
+                    '1-battery': {
+                        label: '1 Baterai',
+                        price: 27500000,
+                        kredivo: {
+                            12: [{ from: 1, to: 12, installment: 2635417 }],
+                            18: [{ from: 1, to: 12, installment: 1756944 }, { from: 13, to: 18, installment: 2075028 }],
+                            24: [{ from: 1, to: 12, installment: 1317708 }, { from: 13, to: 24, installment: 1693083 }],
+                            30: [{ from: 1, to: 12, installment: 1054167 }, { from: 13, to: 30, installment: 1463917 }],
+                            36: [{ from: 1, to: 12, installment: 878472 }, { from: 13, to: 36, installment: 1219931 }]
+                        },
+                        mandiri: {
+                            6000000: { 12: 2314000, 21: 1478000, 33: 1074000, 45: 906000 },
+                            7000000: { 12: 2212000, 21: 1413000, 33: 1028000, 45: 867000 },
+                            8000000: { 12: 2111000, 21: 1349000, 33: 981000, 45: 828000 },
+                            9000000: { 12: 2009000, 21: 1285000, 33: 935000, 45: 789000 }
+                        }
+                    },
+                    '2-batteries': {
+                        label: '2 Baterai',
+                        price: 31500000,
+                        kredivo: {
+                            12: [{ from: 1, to: 12, installment: 3018750 }],
+                            18: [{ from: 1, to: 12, installment: 2012500 }, { from: 13, to: 18, installment: 2376850 }],
+                            24: [{ from: 1, to: 12, installment: 1509375 }, { from: 13, to: 24, installment: 1939350 }],
+                            30: [{ from: 1, to: 12, installment: 1207500 }, { from: 13, to: 30, installment: 1676850 }],
+                            36: [{ from: 1, to: 12, installment: 1006250 }, { from: 13, to: 36, installment: 1397375 }]
+                        },
+                        mandiri: {
+                            6500000: { 12: 2672000, 21: 1706000, 33: 1240000, 45: 1046000 },
+                            7000000: { 12: 2621000, 21: 1674000, 33: 1217000, 45: 1027000 },
+                            7500000: { 12: 2570000, 21: 1642000, 33: 1194000, 45: 1007000 },
+                            8000000: { 12: 2519000, 21: 1610000, 33: 1170000, 45: 988000 }
+                        }
+                    }
                 }
             },
 
@@ -2197,6 +2276,22 @@
             document.getElementById('map-section').style.display = 'block';
 
             document.getElementById('credit-payment').value = type === 'kredit' ? 'kredit' : 'cash';
+            const rawProduct = productData[productName];
+            const variantGroup = document.getElementById('credit-variant-group');
+            const variantSelect = document.getElementById('credit-variant');
+            if (rawProduct && rawProduct.variants) {
+                variantGroup.hidden = false;
+                variantSelect.replaceChildren();
+                Object.entries(rawProduct.variants).forEach(([k, v]) => {
+                    const opt = document.createElement('option');
+                    opt.value = k;
+                    opt.textContent = `${v.label} (Rp ${Math.round(v.price).toLocaleString('id-ID')})`;
+                    variantSelect.append(opt);
+                });
+                variantSelect.value = rawProduct.defaultVariant || Object.keys(rawProduct.variants)[0];
+            } else {
+                variantGroup.hidden = true;
+            }
             updateCreditSimulation();
             updateCreditBranch();
 
@@ -2229,7 +2324,22 @@
         }
 
         function getCreditProductSpec() {
-            return productData[currentKreditProduct] || { price: 0, tenors: [] };
+            const raw = productData[currentKreditProduct];
+            if (!raw) return { price: 0, tenors: [] };
+            if (raw.variants) {
+                const variantKey = document.getElementById('credit-variant')?.value || raw.defaultVariant || Object.keys(raw.variants)[0];
+                const v = raw.variants[variantKey] || raw.variants[Object.keys(raw.variants)[0]];
+                return {
+                    ...raw,
+                    variantKey,
+                    variantLabel: v.label,
+                    price: v.price,
+                    kredivo: v.kredivo,
+                    mandiri: v.mandiri,
+                    tenors: raw.tenors || []
+                };
+            }
+            return raw;
         }
         function sendToWA() {
             if (!document.getElementById('kreditForm').reportValidity()) return;
@@ -2243,10 +2353,14 @@
             if (!deliveryReady) { document.getElementById('map-status').textContent = 'Pilih titik rumah di peta dan tunggu estimasi ongkir selesai.'; document.getElementById('map-section').scrollIntoView({ block: 'center', behavior: 'smooth' }); return; }
             const spec = getCreditProductSpec();
             const installmentSchedule = method?.id === 'kredivo' ? spec.kredivo?.[Number(tenor?.value)] : null;
+            const selectedDp = Number(document.getElementById('credit-dp-select')?.value || 0);
+            const mandiriMonthly = method?.id === 'mandiri' && spec.mandiri?.[selectedDp] ? spec.mandiri[selectedDp][Number(tenor?.value)] : null;
+            const mandiriDetails = mandiriMonthly ? { dp: selectedDp, monthly: mandiriMonthly } : null;
+            const productName = spec.variantLabel ? `${currentKreditProduct} (${spec.variantLabel})` : currentKreditProduct;
             const message = creditFinance.buildMessage({
-                branch: { ...branch, sales: salesperson }, referralCode: creditReferral?.sales.id, method, type: currentTxType, product: currentKreditProduct, price: spec.price,
+                branch: { ...branch, sales: salesperson }, referralCode: creditReferral?.sales.id, method, type: currentTxType, product: productName, price: spec.price,
                 name: document.getElementById('nama').value.trim(), address: document.getElementById('alamat').value.trim(),
-                tenor: tenor ? Number(tenor.value) : null, installmentSchedule,
+                tenor: tenor ? Number(tenor.value) : null, installmentSchedule, mandiriDetails,
                 delivery: deliveryReady ? { distance: currentDistance, cost: currentOngkir, destination: deliveryDestination } : null
             });
             window.open('https://wa.me/' + phone + '?text=' + encodeURIComponent(message), '_blank', 'noopener,noreferrer');
@@ -2451,26 +2565,65 @@
         }, { passive: true });
         updateActiveNav();
 
-        // ── HERO 3D CURVED PANORAMA GALLERY ───────────────────
+        // ── HERO 3D CURVED PANORAMA GALLERY (AUTO-MOVING) ──────
         (() => {
+            const stage = document.getElementById('hero-panorama-stage');
+            const viewport = document.getElementById('hero-panorama-viewport');
+            const controls = document.getElementById('hero-pano-controls');
             const cards = [...document.querySelectorAll('.hero-pano-card')];
             const dots = [...document.querySelectorAll('.hero-pano-dot')];
             const prevBtn = document.getElementById('hero-pano-prev');
             const nextBtn = document.getElementById('hero-pano-next');
+            const autoplayBtn = document.getElementById('hero-pano-autoplay');
             if (!cards.length) return;
 
-            let activeIndex = 2;
             const total = cards.length;
+            const AUTOPLAY_MS = 3200;
+            const reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+            let activeIndex = 2;
+            let userPaused = reduceMotionQuery.matches;
+            let hoverPaused = false;
+            let timerId = null;
 
-            function syncPanorama(nextIndex) {
-                activeIndex = ((nextIndex % total) + total) % total;
+            function computeRel(idx, centerIdx, dir) {
+                const mod = ((idx - centerIdx) % total + total) % total;
+                if (mod === 0) return 0;
+                if (mod === 1) return 1;
+                if (mod === 2) return 2;
+                if (mod === total - 1) return -1;
+                if (mod === total - 2) return -2;
+                return dir >= 0 ? -3 : 3;
+            }
+
+            function syncPanorama(nextIndex, dir = 1, instant = false) {
+                const normalizedNext = ((nextIndex % total) + total) % total;
+
+                if (!instant && total >= 6) {
+                    const enteringTargetRel = dir >= 0 ? 2 : -2;
+                    const enteringPreSnapPos = dir >= 0 ? '3' : '-3';
+                    cards.forEach((card, idx) => {
+                        const nextRel = computeRel(idx, normalizedNext, dir);
+                        if (nextRel === enteringTargetRel && card.getAttribute('data-pos') !== enteringPreSnapPos) {
+                            card.classList.add('is-snapping');
+                            card.setAttribute('data-pos', enteringPreSnapPos);
+                        }
+                    });
+                    if (stage) void stage.offsetWidth;
+                    cards.forEach(card => card.classList.remove('is-snapping'));
+                }
+
+                activeIndex = normalizedNext;
                 cards.forEach((card, idx) => {
-                    let rel = (idx - activeIndex) % total;
-                    if (rel > 2) rel -= total;
-                    if (rel < -2) rel += total;
+                    const rel = computeRel(idx, activeIndex, dir);
+                    if (instant) card.classList.add('is-snapping');
                     card.setAttribute('data-pos', String(rel));
                     card.setAttribute('aria-current', rel === 0 ? 'true' : 'false');
                 });
+                if (instant && stage) {
+                    void stage.offsetWidth;
+                    cards.forEach(card => card.classList.remove('is-snapping'));
+                }
+
                 dots.forEach((dot, idx) => {
                     const active = idx === activeIndex;
                     dot.classList.toggle('is-active', active);
@@ -2478,36 +2631,97 @@
                 });
             }
 
+            function updateAutoplayUI() {
+                const paused = userPaused || hoverPaused || document.hidden;
+                if (controls) controls.classList.toggle('is-paused', paused);
+                if (autoplayBtn) {
+                    autoplayBtn.setAttribute('aria-pressed', String(userPaused));
+                    autoplayBtn.setAttribute('aria-label', userPaused ? 'Lanjutkan gerakan otomatis galeri' : 'Jeda gerakan otomatis galeri');
+                    autoplayBtn.title = userPaused ? 'Lanjutkan gerakan otomatis' : 'Jeda gerakan otomatis';
+                    autoplayBtn.textContent = userPaused ? '▶' : '❚❚';
+                }
+            }
+
+            function restartTimer() {
+                if (timerId) {
+                    clearInterval(timerId);
+                    timerId = null;
+                }
+                updateAutoplayUI();
+                if (userPaused || hoverPaused || document.hidden) return;
+                timerId = setInterval(() => {
+                    syncPanorama(activeIndex + 1, 1);
+                }, AUTOPLAY_MS);
+            }
+
+            function stepBy(delta) {
+                syncPanorama(activeIndex + delta, delta >= 0 ? 1 : -1);
+                restartTimer();
+            }
+
+            function goToSlide(targetIdx) {
+                if (targetIdx === activeIndex) return;
+                let diff = ((targetIdx - activeIndex) % total + total) % total;
+                if (diff > total / 2) diff -= total;
+                syncPanorama(targetIdx, diff >= 0 ? 1 : -1);
+                restartTimer();
+            }
+
             window.handleHeroCardClick = (index, category) => {
                 if (index !== activeIndex) {
-                    syncPanorama(index);
+                    goToSlide(index);
                 } else if (category && typeof showCategory === 'function') {
                     showCategory(category);
                 }
             };
 
-            cards.forEach((card, idx) => {
+            cards.forEach(card => {
                 card.addEventListener('keydown', event => {
                     if (event.key === 'Enter' || event.key === ' ') {
                         event.preventDefault();
                         card.click();
                     } else if (event.key === 'ArrowLeft') {
                         event.preventDefault();
-                        syncPanorama(activeIndex - 1);
+                        stepBy(-1);
                     } else if (event.key === 'ArrowRight') {
                         event.preventDefault();
-                        syncPanorama(activeIndex + 1);
+                        stepBy(1);
                     }
                 });
             });
 
-            if (prevBtn) prevBtn.addEventListener('click', () => syncPanorama(activeIndex - 1));
-            if (nextBtn) nextBtn.addEventListener('click', () => syncPanorama(activeIndex + 1));
+            if (prevBtn) prevBtn.addEventListener('click', () => stepBy(-1));
+            if (nextBtn) nextBtn.addEventListener('click', () => stepBy(1));
             dots.forEach((dot, idx) => {
-                dot.addEventListener('click', () => syncPanorama(idx));
+                dot.addEventListener('click', () => goToSlide(idx));
             });
 
-            syncPanorama(activeIndex);
+            if (autoplayBtn) {
+                autoplayBtn.addEventListener('click', () => {
+                    userPaused = !userPaused;
+                    restartTimer();
+                });
+            }
+
+            if (viewport) {
+                viewport.addEventListener('pointerenter', () => {
+                    hoverPaused = true;
+                    restartTimer();
+                });
+                viewport.addEventListener('pointerleave', () => {
+                    hoverPaused = false;
+                    restartTimer();
+                });
+            }
+
+            document.addEventListener('visibilitychange', restartTimer);
+            reduceMotionQuery.addEventListener('change', event => {
+                userPaused = event.matches;
+                restartTimer();
+            });
+
+            syncPanorama(activeIndex, 1, true);
+            restartTimer();
         })();
     </script>
 </body>

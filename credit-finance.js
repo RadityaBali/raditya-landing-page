@@ -11,12 +11,17 @@
         const interest = principal * method.monthlyInterestPercent / 100 * tenor;
         return { dp, principal, monthly: Math.ceil((principal + interest) / tenor), total: dp + Math.ceil((principal + interest) / tenor) * tenor };
     }
-    function buildMessage({ branch, referralCode, method, type, product, price, name, address, tenor, installmentSchedule, delivery }) {
+    function buildMessage({ branch, referralCode, method, type, product, price, name, address, tenor, installmentSchedule, mandiriDetails, delivery }) {
         const lines = [`Halo ${branch.sales.name}, saya ingin ${type === 'cash' ? 'memesan secara tunai' : 'mengajukan pembiayaan'} di ${branch.name}.`, '', `Produk: ${product}`, `Nama: ${name}`, `Alamat: ${address}`, `Cabang: ${branch.name}`, `Sales: ${branch.sales.name}`, `Harga produk: ${price > 0 ? rupiah(price) : 'Mohon konfirmasi harga'}`];
         if (referralCode) lines.push('Kode referral: ' + referralCode);
         if (type !== 'cash') {
             lines.push(`Metode pembiayaan: ${method.name}`, `Tenor pilihan: ${tenor} bulan`);
-            if (installmentSchedule) {
+            if (mandiriDetails) {
+                lines.push(`Skema: Mandiri Utama Finance (MUF)`);
+                lines.push(`Uang Muka (DP): ${rupiah(mandiriDetails.dp)}`);
+                lines.push(`Angsuran: ${rupiah(mandiriDetails.monthly)} per bulan`);
+                lines.push('Persyaratan: KTP Suami/Istri, KK, Rek Listrik/PDAM/PBB/Telkom, Slip Gaji/Rek Koran, bersedia disurvei.');
+            } else if (installmentSchedule) {
                 lines.push('Promo Kredivo: 0% untuk 12 bulan pertama dengan admin fee 15%.');
                 installmentSchedule.forEach(period => lines.push(`Angsuran bulan ${period.from}–${period.to}: ${rupiah(period.installment)} per bulan`));
             } else {

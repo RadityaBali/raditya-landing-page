@@ -8,7 +8,11 @@ function getKredivoSchedule(method, tenor) {
     return getCreditProductSpec().kredivo?.[tenor] || null;
 }
 function formatKredivoSchedule(schedule) {
-    return schedule.map(period => `Bln ${period.from}–${period.to}: ${creditFinance.rupiah(period.installment)}`).join(' · ');
+    return schedule.map(period => `Bln ${period.from}–${period.to}: ${creditFinance.rupiah(period.installment)}`).join('\n');
+}
+function getMandiriMonthly(method, dp, tenor) {
+    if (method?.id !== 'mandiri') return null;
+    return getCreditProductSpec().mandiri?.[dp]?.[tenor] || null;
 }
 function updateCreditBranch() {
     const branch = creditBranches.find(item => item.id === creditBranchSelect.value);
@@ -40,34 +44,72 @@ function updateCreditSimulation() {
     document.getElementById('credit-upfront-label').textContent = 'Uang muka (DP)';
     document.getElementById('credit-rate-label').textContent = 'Bunga flat contoh';
     document.getElementById('credit-rate-unit').textContent = '% / Bln';
-    if (currentTxType === 'cash') { updateCreditBranch(); return; }
+    if (currentTxType === 'cash') {
+        document.getElementById('credit-dp-group').hidden = true;
+        updateCreditBranch();
+        return;
+    }
     const spec = getCreditProductSpec();
+    const isMandiri = method?.id === 'mandiri';
+    const dpGroup = document.getElementById('credit-dp-group');
+    const dpSelect = document.getElementById('credit-dp-select');
+
+    if (isMandiri && spec.mandiri) {
+        dpGroup.hidden = false;
+        const availableDps = Object.keys(spec.mandiri).map(Number).sort((a, b) => a - b);
+        const currentDp = Number(dpSelect.value);
+        dpSelect.replaceChildren();
+        availableDps.forEach(dp => {
+            const opt = document.createElement('option');
+            opt.value = String(dp);
+            opt.textContent = creditFinance.rupiah(dp);
+            dpSelect.append(opt);
+        });
+        if (availableDps.includes(currentDp)) dpSelect.value = String(currentDp);
+        else dpSelect.value = String(availableDps[0] || '');
+    } else {
+        dpGroup.hidden = true;
+    }
+
+    const selectedDp = Number(dpSelect.value) || 0;
     const group = document.getElementById('kredit-radio-group');
     const previousTenor = Number(group.querySelector('input:checked')?.value);
     group.replaceChildren();
     if (!method) return;
     const tenors = method.tenors.filter(tenor => method.id !== 'koperasi' || currentCategory !== 'sepeda' || tenor <= 36);
-    const selectedTenor = tenors.includes(previousTenor) ? previousTenor : tenors[tenors.length - 1];
+    const selectedTenor = tenors.includes(previousTenor) ? previousTenor : tenors[0];
     const selectedKredivoSchedule = getKredivoSchedule(method, selectedTenor);
-    const minCalculation = method.id === 'kredivo' ? null : creditFinance.simulate(spec.price, method, tenors[tenors.length - 1]);
+    const selectedMandiriMonthly = isMandiri ? getMandiriMonthly(method, selectedDp, selectedTenor) : null;
+    const minCalculation = (method.id === 'kredivo' || isMandiri) ? null : creditFinance.simulate(spec.price, method, tenors[tenors.length - 1]);
+
     if (selectedKredivoSchedule) {
-        document.getElementById('credit-method-note').textContent = 'Promo Kredivo 0% untuk 12 bulan pertama dengan admin fee 15%. Nominal angsuran mengikuti skema OTR Bali dan perlu dikonfirmasi saat pengajuan.';
+        document.getElementById('credit-method-note').textContent = 'Promo Kredivo 0% untuk 12 bulan pertama dengan admin fee 15%. Nominal angsuran mengikuti skema OTR Bali resmi.';
         document.getElementById('credit-installment-label').textContent = selectedKredivoSchedule.length > 1 ? 'Angsuran bulan 1–12' : 'Angsuran per bulan';
         document.getElementById('credit-upfront-label').textContent = 'Harga OTR';
         document.getElementById('credit-rate-label').textContent = 'Admin fee';
-        document.getElementById('credit-price-display').textContent = creditFinance.rupiah(spec.price);
+        document.getElementById('kredit-price-display').textContent = creditFinance.rupiah(spec.price);
         document.getElementById('kredit-rate-percentage').textContent = '15';
         document.getElementById('credit-rate-unit').textContent = '%';
         document.getElementById('kredit-interest-display').textContent = creditFinance.rupiah(selectedKredivoSchedule[0].installment);
+    } else if (isMandiri && spec.mandiri) {
+        document.getElementById('credit-method-note').textContent = 'Skema resmi Mandiri Utama Finance (MUF) untuk VinFast Bali. Syarat: KTP Suami/Istri, KK, Rek Listrik/Air/Telkom, Slip Gaji/Rekening Koran.';
+        document.getElementById('credit-installment-label').textContent = 'Angsuran per bulan';
+        document.getElementById('credit-upfront-label').textContent = 'Uang muka (DP)';
+        document.getElementById('credit-rate-label').textContent = 'Tenor';
+        document.getElementById('kredit-price-display').textContent = creditFinance.rupiah(selectedDp);
+        document.getElementById('kredit-rate-percentage').textContent = String(selectedTenor);
+        document.getElementById('credit-rate-unit').textContent = ' Bln';
+        document.getElementById('kredit-interest-display').textContent = selectedMandiriMonthly ? creditFinance.rupiah(selectedMandiriMonthly) : 'Pilih tenor';
     } else {
-        document.getElementById('credit-method-note').textContent = 'Simulasi dummy, bukan ketentuan resmi ' + method.name + '. Bunga flat dan tenor hanya contoh. Belum termasuk biaya admin, asuransi, dan biaya lain; konfirmasikan kepada sales.';
+        document.getElementById('credit-method-note').textContent = 'Skema resmi ' + method.name + '. Nilai angsuran dapat dikonfirmasi lebih lanjut bersama sales cabang.';
         document.getElementById('kredit-price-display').textContent = minCalculation ? creditFinance.rupiah(minCalculation.dp) : 'Tanya sales';
         document.getElementById('kredit-rate-percentage').textContent = method.monthlyInterestPercent.toLocaleString('id-ID', { maximumFractionDigits: 2 });
         document.getElementById('kredit-interest-display').textContent = minCalculation ? creditFinance.rupiah(minCalculation.monthly) : 'Tanya sales';
     }
     tenors.forEach(tenor => {
         const schedule = getKredivoSchedule(method, tenor);
-        const calculation = method.id === 'kredivo' ? null : creditFinance.simulate(spec.price, method, tenor);
+        const mandiriMonthly = isMandiri ? getMandiriMonthly(method, selectedDp, tenor) : null;
+        const calculation = (method.id === 'kredivo' || isMandiri) ? null : creditFinance.simulate(spec.price, method, tenor);
         const row = document.createElement('label');
         row.className = 'radio-item';
         const input = document.createElement('input');
@@ -77,7 +119,7 @@ function updateCreditSimulation() {
         const duration = document.createElement('strong');
         duration.textContent = tenor + ' bulan';
         const monthly = document.createElement('small');
-        monthly.textContent = schedule ? formatKredivoSchedule(schedule) : calculation ? creditFinance.rupiah(calculation.monthly) + ' / bln' : 'Tanya sales';
+        monthly.textContent = schedule ? formatKredivoSchedule(schedule) : mandiriMonthly ? creditFinance.rupiah(mandiriMonthly) + ' / bln' : calculation ? creditFinance.rupiah(calculation.monthly) + ' / bln' : 'Tanya sales';
         span.append(duration, monthly);
         input.addEventListener('change', updateSelectedCreditAmount);
         row.append(input, span); group.append(row);
@@ -88,13 +130,25 @@ function updateCreditSimulation() {
 function updateSelectedCreditAmount() {
     const method = creditMethods.find(item => item.id === creditMethodSelect.value);
     const tenor = Number(document.querySelector('input[name="cicilan"]:checked')?.value);
+    const spec = getCreditProductSpec();
     const schedule = getKredivoSchedule(method, tenor);
     if (schedule) {
         document.getElementById('credit-installment-label').textContent = schedule.length > 1 ? 'Angsuran bulan 1–12' : 'Angsuran per bulan';
         document.getElementById('kredit-interest-display').textContent = creditFinance.rupiah(schedule[0].installment);
         return;
     }
-    const calculation = creditFinance.simulate(getCreditProductSpec().price, method, tenor);
+    if (method?.id === 'mandiri') {
+        const dp = Number(document.getElementById('credit-dp-select')?.value || 0);
+        const monthly = getMandiriMonthly(method, dp, tenor);
+        document.getElementById('credit-installment-label').textContent = 'Angsuran per bulan';
+        document.getElementById('credit-upfront-label').textContent = 'Uang muka (DP)';
+        document.getElementById('kredit-price-display').textContent = creditFinance.rupiah(dp);
+        document.getElementById('kredit-rate-percentage').textContent = String(tenor || '-');
+        document.getElementById('credit-rate-unit').textContent = ' Bln';
+        document.getElementById('kredit-interest-display').textContent = monthly ? creditFinance.rupiah(monthly) : 'Tanya sales';
+        return;
+    }
+    const calculation = creditFinance.simulate(spec.price, method, tenor);
     document.getElementById('kredit-interest-display').textContent = calculation ? creditFinance.rupiah(calculation.monthly) : 'Tanya sales';
 }
 function updateCashSummary() {
@@ -114,6 +168,11 @@ document.addEventListener('raditya:contact', event => {
 });
 document.getElementById('credit-payment').addEventListener('change', updateCreditSimulation);
 creditMethodSelect.addEventListener('change', updateCreditSimulation);
+document.getElementById('credit-variant')?.addEventListener('change', () => {
+    updateCreditSimulation();
+    updateCashSummary();
+});
+document.getElementById('credit-dp-select')?.addEventListener('change', updateCreditSimulation);
 (async () => {
     try {
         const [branchResponse, methodResponse] = await Promise.all([fetch('branches.json?v=network-1'), fetch('financing.json')]);
