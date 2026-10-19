@@ -70,20 +70,6 @@
 .hero-ev-intro strong{font-weight:600;color:#e1f8ef}
 @media(max-width:640px){.new-hero h1{font-size:clamp(32px,8.7vw,48px)}.hero-ev-intro{margin-top:20px}.hero-ev-intro p{font-size:14px}}
 
-.hero-intro-mobile{display:none}
-@media(max-width:640px){
- .new-hero{padding-top:22px}
- .ev-hero-layout{gap:0}
- .ev-hero-copy{display:contents}
- .ev-hero-copy>.ev-badge{order:0;justify-self:start;margin-bottom:14px}
- .new-hero h1{order:1;font-size:clamp(29px,8.2vw,40px);margin:0 0 20px;line-height:1.12}
- .ev-hero-layout>.ev-stage{order:2;height:300px}
- .ev-hero-copy>.hero-actions{order:3;margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
- .hero-actions .pill-link{padding:12px 10px;font-size:10px;justify-content:center}
- .hero-intro-mobile{display:block;order:4;font-size:11px;line-height:1.65;color:#a9bdc7;margin:16px 0 0;text-align:center}
- .ev-hero-copy>.hero-intro-desktop,.ev-hero-copy>.hero-ev-intro,.ev-hero-copy>.hero-location,.new-hero>.ev-hero-bottom{display:none}
- .new-hero{padding-bottom:26px}
-}
 
 #katalog-container[hidden],.catalog-section[hidden]{display:none!important}
 
@@ -435,9 +421,9 @@
  cursor:pointer;
  opacity:1;
  transition:
-  transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-  opacity 0.65s ease,
-  filter 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+  transform 0.78s cubic-bezier(0.22, 1, 0.36, 1),
+  opacity 0.55s ease,
+  filter 0.78s cubic-bezier(0.22, 1, 0.36, 1),
   border-color 0.35s ease,
   box-shadow 0.45s ease;
  backface-visibility:hidden;
@@ -812,6 +798,9 @@
  to{transform:scaleX(1)}
 }
 
+.hero-actions-mobile{
+ display:none;
+}
 @media(max-width:900px){
  .hero-panorama-viewport{
   --card-w:clamp(260px, 54vw, 390px);
@@ -820,40 +809,74 @@
 }
 @media(max-width:640px){
  .new-hero.hero-curved-section{
-  padding-top:98px;
-  padding-bottom:44px;
+  padding-top:104px;
+  padding-bottom:28px;
  }
  #merek.brands-section{
-  margin-top:-32px;
-  padding:40px 0 34px;
-  border-radius:50% 50% 0 0 / 32px 32px 0 0;
+  margin-top:-24px;
+  padding:34px 0 28px;
+  border-radius:50% 50% 0 0 / 24px 24px 0 0;
  }
  .hero-curved-header{
-  padding-bottom:12px;
+  padding-bottom:8px;
+  max-width:100%;
+  padding-left:18px;
+  padding-right:18px;
  }
  .hero-curved-header .ev-badge{
   margin-bottom:12px;
+  font-size:9.5px;
+  letter-spacing:.12em;
  }
  .hero-curved-header h1{
-  font-size:clamp(28px, 8vw, 38px);
+  font-size:clamp(26px, 7.5vw, 34px);
+  line-height:1.15;
   margin-bottom:10px;
  }
- .hero-curved-header .hero-intro-desktop,
- .hero-curved-header .hero-ev-intro,
- .hero-curved-header .hero-location{
-  display:none;
- }
- .hero-curved-header .hero-intro-mobile{
-  display:block;
+ .hero-curved-header .intro-copy{
+  font-size:12.5px;
+  line-height:1.6;
+  max-width:320px;
   margin:0 auto;
-  font-size:12px;
   color:#d0e8f8;
  }
- .hero-curved-header .hero-actions{
-  margin-top:14px;
+ .hero-actions-desktop{
+  display:none!important;
+ }
+ .hero-actions-mobile{
   display:flex;
-  width:100%;
   justify-content:center;
+  gap:10px;
+  width:min(350px, calc(100% - 32px));
+  margin:18px auto 0;
+  position:relative;
+  z-index:6;
+ }
+ .hero-actions-mobile .pill-link{
+  flex:1;
+  min-height:44px;
+  padding:11px 14px;
+  font-size:12px;
+  font-weight:600;
+  justify-content:center;
+  text-align:center;
+  border-radius:10px;
+ }
+ .hero-actions-mobile .pill-link.gold{
+  background:linear-gradient(125deg, #38bdf8 0%, #01a2f0 100%);
+  color:#04243a;
+  box-shadow:0 8px 22px rgba(1,162,240,0.38);
+ }
+ .hero-actions-mobile .pill-link.outline{
+  border:1px solid rgba(186,230,253,0.36);
+  background:rgba(255,255,255,0.08);
+  color:#eff8ff;
+ }
+ .new-hero .ev-hero-bottom{
+  margin-top:10px;
+  padding-top:12px;
+  padding-bottom:10px;
+  font-size:9px;
  }
  .hero-panorama-viewport{
   --card-w:clamp(235px, 68vw, 310px);

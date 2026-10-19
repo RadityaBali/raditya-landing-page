@@ -1,5 +1,5 @@
 :root{--ink:#103b49;--teal:#0b4f69;--muted:#62777e;--cream:#f4f5ee;--line:#dfe7e6;--gold:#ffb400}
-html{scroll-padding-top:95px}
+html{scroll-padding-top:95px;scroll-behavior:smooth}
 body{color:var(--ink)}
 a{text-decoration:none}
 button{font:inherit}
