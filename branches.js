@@ -13,7 +13,7 @@
     const nearestPanel = document.getElementById('branch-nearest');
     const formatDistance = distance => distance < 1 ? Math.round(distance * 1000) + ' m' : new Intl.NumberFormat('id-ID', { maximumFractionDigits: 1 }).format(distance) + ' km';
     try {
-        const response = await fetch('branches.json?v=network-1');
+        const response = await fetch('branches.json?v=network-2');
         if (!response.ok) throw new Error('Branch data unavailable');
         branches = await response.json();
     } catch {
@@ -74,7 +74,8 @@
         }
         const directions = document.createElement('a');
         directions.className = 'branch-directions';
-        directions.href = 'https://www.google.com/maps/dir/?api=1&destination=' + encodeURIComponent(branch.coordinates.join(','));
+        const destination = branch.googleMapsQuery || branch.coordinates.join(',');
+        directions.href = 'https://www.google.com/maps/dir/?api=1&destination=' + encodeURIComponent(destination);
         directions.target = '_blank';
         directions.rel = 'noopener noreferrer';
         directions.textContent = 'Petunjuk arah ↗';
@@ -156,23 +157,28 @@
     const image = document.getElementById('bali-map-image');
     image.addEventListener('error', () => { error.hidden = false; });
     image.addEventListener('load', () => { error.hidden = true; });
-    branches.forEach(branch => {
+    branches.forEach((branch, index) => {
         if (!Array.isArray(branch.mapPosition) || branch.mapPosition.length !== 2 || !branch.mapPosition.every(value => Number.isFinite(value) && value >= 0 && value <= 100)) return;
         const marker = document.createElement('button');
         marker.className = 'bali-branch-pin';
         marker.style.left = branch.mapPosition[0] + '%';
         marker.style.top = branch.mapPosition[1] + '%';
+        marker.style.setProperty('--pin-delay', (index * 0.28) + 's');
         marker.setAttribute('aria-label', 'Lihat detail ' + branch.name + (branch.isPreview ? ', data dummy' : ''));
         marker.type = 'button';
         const face = document.createElement('span');
         face.className = 'bali-pin-face';
+        const beacon = document.createElement('span');
+        beacon.className = 'bali-pin-beacon';
+        beacon.setAttribute('aria-hidden', 'true');
+        beacon.innerHTML = '<span class="bali-beacon-dot"></span><span class="bali-beacon-ring"></span><span class="bali-beacon-ring-2"></span>';
         const icon = document.createElement('span');
         icon.className = 'bali-pin-icon';
         icon.setAttribute('aria-hidden', 'true');
         icon.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7Zm0 10a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"/></svg>';
         const name = document.createElement('span');
         name.textContent = branch.mapLabel || branch.region;
-        face.append(icon, name);
+        face.append(beacon, icon, name);
         marker.append(face);
         marker.addEventListener('click', () => { showBranch(branch); window.radityaContact?.chooseBranch(branch.id); });
         pins.append(marker);

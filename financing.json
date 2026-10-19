@@ -15,14 +15,16 @@
   {
     "id": "kredivo",
     "name": "Kredivo",
-    "downPaymentPercent": 20,
-    "monthlyInterestPercent": 1,
+    "downPaymentPercent": 0,
+    "monthlyInterestPercent": 0,
     "tenors": [
-      3,
-      6,
-      12
+      12,
+      18,
+      24,
+      30,
+      36
     ],
-    "isDummy": true
+    "isDummy": false
   },
   {
     "id": "akulaku",

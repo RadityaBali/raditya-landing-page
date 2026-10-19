@@ -11,15 +11,20 @@
         const interest = principal * method.monthlyInterestPercent / 100 * tenor;
         return { dp, principal, monthly: Math.ceil((principal + interest) / tenor), total: dp + Math.ceil((principal + interest) / tenor) * tenor };
     }
-    function buildMessage({ branch, referralCode, method, type, product, price, name, address, tenor, delivery }) {
+    function buildMessage({ branch, referralCode, method, type, product, price, name, address, tenor, installmentSchedule, delivery }) {
         const lines = [`Halo ${branch.sales.name}, saya ingin ${type === 'cash' ? 'memesan secara tunai' : 'mengajukan pembiayaan'} di ${branch.name}.`, '', `Produk: ${product}`, `Nama: ${name}`, `Alamat: ${address}`, `Cabang: ${branch.name}`, `Sales: ${branch.sales.name}`, `Harga produk: ${price > 0 ? rupiah(price) : 'Mohon konfirmasi harga'}`];
         if (referralCode) lines.push('Kode referral: ' + referralCode);
         if (type !== 'cash') {
             lines.push(`Metode pembiayaan: ${method.name}`, `Tenor pilihan: ${tenor} bulan`);
-            const calculation = simulate(price, method, tenor);
-            if (calculation) lines.push(`DP simulasi: ${rupiah(calculation.dp)}`, `Bunga flat simulasi: ${method.monthlyInterestPercent}% per bulan`, `Angsuran simulasi: ${rupiah(calculation.monthly)} per bulan`);
-            else lines.push('DP dan angsuran: Mohon konfirmasi kepada sales.');
-            if (method.isDummy) lines.push('Skema pembiayaan di atas adalah data dummy, bukan ketentuan resmi penyedia dan belum termasuk biaya tambahan. Mohon konfirmasi program yang tersedia.');
+            if (installmentSchedule) {
+                lines.push('Promo Kredivo: 0% untuk 12 bulan pertama dengan admin fee 15%.');
+                installmentSchedule.forEach(period => lines.push(`Angsuran bulan ${period.from}–${period.to}: ${rupiah(period.installment)} per bulan`));
+            } else {
+                const calculation = simulate(price, method, tenor);
+                if (calculation) lines.push(`DP simulasi: ${rupiah(calculation.dp)}`, `Bunga flat simulasi: ${method.monthlyInterestPercent}% per bulan`, `Angsuran simulasi: ${rupiah(calculation.monthly)} per bulan`);
+                else lines.push('DP dan angsuran: Mohon konfirmasi kepada sales.');
+                if (method.isDummy) lines.push('Skema pembiayaan di atas adalah data dummy, bukan ketentuan resmi penyedia dan belum termasuk biaya tambahan. Mohon konfirmasi program yang tersedia.');
+            }
         }
         if (delivery) {
             lines.push(`Cabang pengiriman: ${branch.name}`, `Jarak pengiriman dari cabang: ${delivery.distance.toFixed(1)} km`, `Estimasi ongkir: ${rupiah(delivery.cost)}`);
